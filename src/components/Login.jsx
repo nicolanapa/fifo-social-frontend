@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { getLoginStatus } from "../scripts/getLoginStatus.js";
+import { useNavigate } from "react-router";
 
 function Login() {
     const [loginStatus, setLoginStatus] = useState(false);
     const [newUser, setNewUser] = useState({ username: "", password: "" });
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchLoginStatus() {
@@ -37,6 +39,7 @@ function Login() {
 
         if (responseStatus.isAuthenticated) {
             setLoginStatus(responseStatus.isAuthenticated);
+            navigate("../", 200);
         }
     }
 
