@@ -55,7 +55,7 @@ function Login() {
                     <>
                         <p>
                             You&apos;re already logged in but you can still
-                            login in another account or create another!
+                            log in another account or create another!
                         </p>
                     </>
                 ) : (
