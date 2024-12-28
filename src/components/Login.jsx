@@ -3,7 +3,6 @@ import { getLoginStatus } from "../scripts/getLoginStatus.js";
 
 function Login() {
     const [loginStatus, setLoginStatus] = useState(false);
-    const [form, setForm] = useState({ username: "", password: "" });
     const [newUser, setNewUser] = useState({ username: "", password: "" });
 
     useEffect(() => {
@@ -25,8 +24,8 @@ function Login() {
                 },
                 method: "POST",
                 body: new URLSearchParams({
-                    username: form.username,
-                    password: form.password,
+                    username: e.target.username.value,
+                    password: e.target.password.value,
                 }),
                 credentials: "include",
             }
@@ -69,14 +68,6 @@ function Login() {
         });
     }
 
-    function handleUsername(e) {
-        setForm({ ...form, username: e.target.value });
-    }
-
-    function handlePassword(e) {
-        setForm({ ...form, password: e.target.value });
-    }
-
     return (
         <>
             <div>
@@ -106,8 +97,6 @@ function Login() {
                         type="text"
                         id="username"
                         name="username"
-                        value={form.username}
-                        onChange={handleUsername}
                         minLength={2}
                         maxLength={64}
                         required
@@ -118,8 +107,6 @@ function Login() {
                         type="password"
                         id="password"
                         name="password"
-                        value={form.password}
-                        onChange={handlePassword}
                         required
                     />
 
@@ -138,8 +125,6 @@ function Login() {
                     <input
                         type="text"
                         id="username"
-                        value={form.username}
-                        onChange={handleUsername}
                         minLength={2}
                         maxLength={64}
                         required
