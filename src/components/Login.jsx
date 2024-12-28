@@ -54,8 +54,8 @@ function Login() {
                 {loginStatus ? (
                     <>
                         <p>
-                            You&apos;re already logged in but you can still
-                            log in another account or create another!
+                            You&apos;re already logged in but you can still log
+                            in another account or create another!
                         </p>
                     </>
                 ) : (
@@ -76,6 +76,7 @@ function Login() {
                     <input
                         type="text"
                         id="username"
+                        name="username"
                         value={form.username}
                         onChange={handleUsername}
                         minLength={2}
@@ -87,6 +88,7 @@ function Login() {
                     <input
                         type="password"
                         id="password"
+                        name="password"
                         value={form.password}
                         onChange={handlePassword}
                         required
