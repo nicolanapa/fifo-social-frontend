@@ -6,6 +6,7 @@ async function getLoginStatus() {
             "/login",
         {
             method: "GET",
+            credentials: "include",
         }
     );
 
