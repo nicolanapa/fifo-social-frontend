@@ -1,23 +1,11 @@
-import { Outlet } from "react-router";
 import Home from "./components/Home";
-import NavBar from "./components/NavBar";
 import Login from "./components/Login";
-import LoginContext from "./context/LoginContext";
-import { getLoginObject } from "./scripts/getLoginObject";
-
-const tempLoginValue = await getLoginObject();
+import App from "./components/App";
 
 const routes = [
     {
         path: "/",
-        element: (
-            <LoginContext.Provider value={tempLoginValue}>
-                <NavBar />
-                <main>
-                    <Outlet />
-                </main>
-            </LoginContext.Provider>
-        ),
+        element: <App />,
         children: [
             {
                 path: "/",
