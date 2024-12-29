@@ -4,17 +4,15 @@ import LoginContext from "../context/LoginContext.jsx";
 
 function NavBar() {
     const [loginOrUserPath, setLoginOrUserPath] = useState("/login");
-    const loginInfo = useContext(LoginContext);
+    const { loginInfo } = useContext(LoginContext);
 
     useEffect(() => {
-        async function fetchLoginStatus() {
-            if (loginInfo.isAuthenticated) {
-                setLoginOrUserPath("/user/" + loginInfo.id);
-            }
-        }
+        console.log("Checking status:", loginInfo);
 
-        fetchLoginStatus();
-    }, []);
+        if (loginInfo.isAuthenticated) {
+            setLoginOrUserPath("/user/" + loginInfo.id);
+        }
+    }, [loginInfo]);
 
     return (
         <header>
