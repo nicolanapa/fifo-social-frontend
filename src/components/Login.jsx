@@ -1,19 +1,11 @@
-import { useState, useEffect } from "react";
-import { getLoginStatus } from "../scripts/getLoginStatus.js";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
+import LoginContext from "../context/LoginContext.jsx";
 
 function Login() {
-    const [loginStatus, setLoginStatus] = useState(false);
+    const { loginInfo, setLoginInfo } = useContext(LoginContext);
     const [newUser, setNewUser] = useState({ username: "", password: "" });
     const navigate = useNavigate();
-
-    useEffect(() => {
-        async function fetchLoginStatus() {
-            setLoginStatus(await getLoginStatus());
-        }
-
-        fetchLoginStatus();
-    }, []);
 
     async function handleLogin(e) {
         e.preventDefault();
@@ -38,7 +30,7 @@ function Login() {
         console.log(responseStatus);
 
         if (responseStatus.isAuthenticated) {
-            setLoginStatus(responseStatus.isAuthenticated);
+            setLoginInfo(responseStatus);
             navigate("../", 200);
         }
     }
@@ -74,17 +66,18 @@ function Login() {
     return (
         <>
             <div>
-                {loginStatus ? (
+                {loginInfo.isAuthenticated ? (
                     <>
                         <p>
-                            You&apos;re already logged in but you can still log
-                            in another account or create another!
+                            You&apos;re already logged in as{" "}
+                            {loginInfo.username} but you can still log in as
+                            another account or create a new one!
                         </p>
                     </>
                 ) : (
                     <>
                         <p>
-                            You aren&apos;t logged in. You can Login or Signup!
+                            You aren&apos;t logged in. You should Login or Signup!
                         </p>
                     </>
                 )}
