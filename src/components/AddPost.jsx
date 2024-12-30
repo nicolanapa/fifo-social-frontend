@@ -39,10 +39,19 @@ function AddPost() {
 
             const responseStatus = await response.json();
 
-            console.log(responseStatus);
-
             if (responseStatus.success) {
                 navigate("/");
+            } else {
+                navigate("/errorPage", {
+                    state: {
+                        code:
+                            responseStatus.status !== ""
+                                ? responseStatus.status
+                                : "",
+                        msg:
+                            responseStatus.msg !== "" ? responseStatus.msg : "",
+                    },
+                });
             }
         }
     }
