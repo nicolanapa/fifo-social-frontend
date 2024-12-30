@@ -1,6 +1,7 @@
 import Home from "./components/Home";
 import Login from "./components/Login";
 import App from "./components/App";
+import AddPost from "./components/AddPost";
 
 const routes = [
     {
@@ -14,6 +15,10 @@ const routes = [
             {
                 path: "login",
                 element: <Login />,
+            },
+            {
+                path: "addPost",
+                element: <AddPost />,
             },
         ],
     },
