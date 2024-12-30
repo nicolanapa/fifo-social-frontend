@@ -4,6 +4,7 @@ import App from "./components/App";
 import AddPost from "./components/AddPost";
 import ErrorPage from "./components/ErrorPage";
 import Page404 from "./components/Page404";
+import Post from "./components/Post";
 
 const routes = [
     {
@@ -14,6 +15,15 @@ const routes = [
             {
                 path: "/",
                 element: <Home />,
+            },
+            {
+                path: "/post",
+                children: [
+                    {
+                        path: "/post/:postId",
+                        element: <Post />,
+                    },
+                ],
             },
             {
                 path: "login",
