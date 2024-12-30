@@ -61,7 +61,7 @@ function AddPost() {
             {loginInfo.isAuthenticated ? (
                 <article>
                     <div>
-                        <img src="./icons/userIcon.svg" alt="User" />
+                        <img src="/icons/userIcon.svg" alt="User" />
                         <address>{loginInfo.username}</address>
                     </div>
 

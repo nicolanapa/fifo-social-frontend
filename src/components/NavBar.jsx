@@ -18,20 +18,20 @@ function NavBar() {
         <header>
             <nav>
                 <NavLink to="/">
-                    <img src="./icons/homeIcon.svg" alt="Home" />
+                    <img src="/icons/homeIcon.svg" alt="Home" />
                 </NavLink>
                 <div>
                     <input type="text" />
                     <button type="submit">
-                        <img src="./icons/searchIcon.svg" alt="Search" />
+                        <img src="/icons/searchIcon.svg" alt="Search" />
                     </button>
                 </div>
                 <NavLink to="/addPost">
-                    <img src="./icons/addPostIcon.svg" alt="Add a Post" />
+                    <img src="/icons/addPostIcon.svg" alt="Add a Post" />
                 </NavLink>
                 <NavLink to={loginOrUserPath}>
                     <img
-                        src="./icons/userIcon.svg"
+                        src="/icons/userIcon.svg"
                         alt={
                             loginOrUserPath === "/login"
                                 ? "Login Page"
