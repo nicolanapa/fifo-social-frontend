@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import Comment from "./Comment";
 
 function Post() {
     const { postId } = useParams();
@@ -49,7 +50,10 @@ function Post() {
         <article>
             <div>
                 <img src="/icons/userIcon.svg" alt="User" />
-                <address>{postObject.username}</address>
+                <div>
+                    <address>{postObject.username}</address>
+                    <p>{postObject.creation_date}</p>
+                </div>
             </div>
 
             <h1>{postObject.title}</h1>
@@ -69,7 +73,25 @@ function Post() {
                 </div>
             </footer>
 
-            <section>{/* iterate over all comments */}</section>
+            <section>
+                {commentsObject.length !== 0 ? (
+                    commentsObject.map((comment) => {
+                        const randomKey = crypto.randomUUID();
+
+                        return (
+                            <Comment
+                                user_id={comment.user_id}
+                                content={comment.content}
+                                likes={comment.likes}
+                                creation_date={comment.creation_date}
+                                key={randomKey}
+                            />
+                        );
+                    })
+                ) : (
+                    <h2>No comments yet...</h2>
+                )}
+            </section>
         </article>
     );
 }
