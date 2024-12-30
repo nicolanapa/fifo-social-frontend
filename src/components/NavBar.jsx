@@ -32,7 +32,11 @@ function NavBar() {
                 <NavLink to={loginOrUserPath}>
                     <img
                         src="./icons/userIcon.svg"
-                        alt="Your account or login page"
+                        alt={
+                            loginOrUserPath === "/login"
+                                ? "Login Page"
+                                : "Your Account"
+                        }
                     />
                 </NavLink>
             </nav>
