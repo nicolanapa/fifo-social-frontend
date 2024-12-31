@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Post from "./Post";
+import PostPreview from "./PostPreview";
 
 function User() {
     const { userId } = useParams();
@@ -75,8 +75,8 @@ function User() {
                     postObject.map((post) => {
                         const randomKey = crypto.randomUUID();
 
-                        /*return (
-                            <Post
+                        return (
+                            <PostPreview
                                 id={post.id}
                                 user_id={post.user_id}
                                 title={post.content}
@@ -85,7 +85,7 @@ function User() {
                                 creation_date={post.creation_date}
                                 key={randomKey}
                             />
-                        );*/
+                        );
                     })
                 ) : (
                     <h2>No posts yet...</h2>
