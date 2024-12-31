@@ -41,6 +41,25 @@ function Post() {
             setPostObject(responsePostObject[0]);
             console.log(responseCommentsObject);
             setCommentsObject(responseCommentsObject);
+
+            const responseUser = await fetch(
+                import.meta.env.VITE_SERVER_DOMAIN +
+                    ":" +
+                    import.meta.env.VITE_SERVER_PORT +
+                    "/user/" +
+                    responsePostObject[0].user_id,
+                {
+                    method: "GET",
+                    credentials: "include",
+                }
+            );
+
+            const responseUserObject = await responseUser.json();
+
+            setPostObject({
+                ...postObject,
+                username: responseUserObject[0].username,
+            });
         }
 
         fetchLoginStatus();
