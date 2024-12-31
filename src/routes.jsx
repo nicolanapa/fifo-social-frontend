@@ -4,6 +4,7 @@ import App from "./components/App";
 import AddPost from "./components/AddPost";
 import ErrorPage from "./components/ErrorPage";
 import Page404 from "./components/Page404";
+import User from "./components/User";
 import Post from "./components/Post";
 
 const routes = [
@@ -15,6 +16,15 @@ const routes = [
             {
                 path: "/",
                 element: <Home />,
+            },
+            {
+                path: "/user",
+                children: [
+                    {
+                        path: "/user/:userId",
+                        element: <User />,
+                    },
+                ],
             },
             {
                 path: "/post",
