@@ -8,7 +8,7 @@ function Post() {
     const [commentsObject, setCommentsObject] = useState("");
 
     useEffect(() => {
-        async function fetchLoginStatus() {
+        async function fetchPostAndComments() {
             const responsePost = await fetch(
                 import.meta.env.VITE_SERVER_DOMAIN +
                     ":" +
@@ -62,7 +62,7 @@ function Post() {
             });
         }
 
-        fetchLoginStatus();
+        fetchPostAndComments();
     }, []);
 
     return (
