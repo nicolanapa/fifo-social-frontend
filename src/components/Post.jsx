@@ -38,7 +38,6 @@ function Post() {
             const responseCommentsObject = await responseComments.json();
 
             console.log(responsePostObject[0]);
-            setPostObject(responsePostObject[0]);
             console.log(responseCommentsObject);
             setCommentsObject(responseCommentsObject);
 
@@ -57,7 +56,7 @@ function Post() {
             const responseUserObject = await responseUser.json();
 
             setPostObject({
-                ...postObject,
+                ...responsePostObject[0],
                 username: responseUserObject[0].username,
             });
         }
