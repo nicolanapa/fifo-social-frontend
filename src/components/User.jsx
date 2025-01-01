@@ -79,7 +79,7 @@ function User() {
                             <PostPreview
                                 id={post.id}
                                 user_id={post.user_id}
-                                title={post.content}
+                                title={post.title}
                                 content={post.content}
                                 likes={post.likes}
                                 creation_date={post.creation_date}
