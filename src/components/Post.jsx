@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Comment from "./Comment";
+import AddComment from "./AddComment";
 
 function Post() {
     const { postId } = useParams();
@@ -90,6 +91,8 @@ function Post() {
                     <img src="/icons/messageIcon.svg" alt="Comments" />
                 </div>
             </footer>
+
+            <AddComment postId={postId} />
 
             <section>
                 {commentsObject.length !== 0 ? (
