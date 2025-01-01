@@ -72,7 +72,7 @@ function AddPost() {
                         method="POST"
                         onSubmit={handlePost}
                     >
-                        <label htmlFor="">Title</label>
+                        <label htmlFor="title">Title</label>
                         <input
                             type="text"
                             id="title"
@@ -82,7 +82,7 @@ function AddPost() {
                             required
                         />
 
-                        <label htmlFor="">Content</label>
+                        <label htmlFor="content">Content</label>
                         <textarea
                             type="text"
                             id="content"
