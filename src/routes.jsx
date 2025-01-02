@@ -6,6 +6,7 @@ import ErrorPage from "./components/ErrorPage";
 import Page404 from "./components/Page404";
 import User from "./components/User";
 import Post from "./components/Post";
+import Copyright from "./components/Copyright";
 
 const routes = [
     {
@@ -46,6 +47,10 @@ const routes = [
             {
                 path: "errorPage",
                 element: <ErrorPage />,
+            },
+            {
+                path: "copyright",
+                element: <Copyright />,
             },
         ],
     },
