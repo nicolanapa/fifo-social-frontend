@@ -56,7 +56,7 @@ function Like({ id, likes, postOrComment }) {
     return (
         <button type="button" onClick={likeX}>
             <img
-                src="/icons/thumbsUpIcon.svg"
+                src="/icons/thumbsUpIconFeather.svg"
                 alt={"Like this " + postOrComment}
             />
             <p>{likeAmount}</p>

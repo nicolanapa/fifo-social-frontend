@@ -94,7 +94,7 @@ function Post() {
 
                 <div>
                     <p>{commentsObject.length}</p>
-                    <img src="/icons/messageIcon.svg" alt="Comments" />
+                    <img src="/icons/messageIconFeather.svg" alt="Comments" />
                 </div>
             </footer>
 

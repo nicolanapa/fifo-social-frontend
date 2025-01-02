@@ -53,7 +53,7 @@ function PostPreview(props) {
 
                 {/*<div>
                     <p>{length}</p>
-                    <img src="/icons/messageIcon.svg" alt="Comments" />
+                    <img src="/icons/messageIconFeather.svg" alt="Comments" />
                 </div>*/}
             </footer>
         </article>
