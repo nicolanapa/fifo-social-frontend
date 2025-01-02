@@ -57,7 +57,7 @@ function User() {
                         <small>{userObject.id}</small>
                         {userObject.admin ? <p>ADMIN</p> : ""}
                         <p>
-                            Created one the{" "}
+                            Created on the{" "}
                             {new Date(
                                 userObject.account_creation_date
                             ).toLocaleString()}
