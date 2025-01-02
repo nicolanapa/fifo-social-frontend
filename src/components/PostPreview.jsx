@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router";
+import Like from "./Like";
 
 function PostPreview(props) {
     const { id, user_id, title, content, likes, creation_date } = props;
@@ -44,13 +45,12 @@ function PostPreview(props) {
             <p>{content}</p>
 
             <footer>
-                <button type="button">
-                    <img src="/icons/thumbsUpIcon.svg" alt="Like this post" />
-                    <p>{likes}</p>
-                </button>
+                <Like id={id} likes={likes} postOrComment={"post"} />
+
                 <button type="button">
                     {/* favorite this post feature */}
                 </button>
+
                 {/*<div>
                     <p>{length}</p>
                     <img src="/icons/messageIcon.svg" alt="Comments" />

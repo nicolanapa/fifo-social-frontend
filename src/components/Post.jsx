@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
+import Like from "./Like";
 
 function Post() {
     const { postId } = useParams();
@@ -79,13 +80,18 @@ function Post() {
             <p>{postObject.content}</p>
 
             <footer>
-                <button type="button">
-                    <img src="/icons/thumbsUpIcon.svg" alt="Like this post" />
-                    <p>{postObject.likes}</p>
-                </button>
+                {postObject && (
+                    <Like
+                        id={postId}
+                        likes={postObject.likes}
+                        postOrComment={"post"}
+                    />
+                )}
+
                 <button type="button">
                     {/* favorite this post feature */}
                 </button>
+
                 <div>
                     <p>{commentsObject.length}</p>
                     <img src="/icons/messageIcon.svg" alt="Comments" />
@@ -101,6 +107,7 @@ function Post() {
 
                         return (
                             <Comment
+                                commentId={comment.id}
                                 user_id={comment.user_id}
                                 content={comment.content}
                                 likes={comment.likes}
