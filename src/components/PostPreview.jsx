@@ -32,9 +32,13 @@ function PostPreview(props) {
     return (
         <article>
             <div>
-                <img src="/icons/userIcon.svg" alt="User" />
+                <Link to={"/user/" + user_id}>
+                    <img src="/icons/userIcon.svg" alt="User" />
+                </Link>
                 <div>
-                    <address>{username}</address>
+                    <Link to={"/user/" + user_id}>
+                        <address>{username}</address>
+                    </Link>
                     <p>{creation_date}</p>
                 </div>
             </div>

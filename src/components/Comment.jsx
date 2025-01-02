@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router";
 import Like from "./Like";
 
 function Comment(props) {
@@ -30,8 +31,10 @@ function Comment(props) {
     return (
         <article>
             <div>
-                <img src="/icons/userIcon.svg" alt="User" />
-                <address>{user}</address>
+                <Link to={"/user/" + user_id}>
+                    <img src="/icons/userIcon.svg" alt="User" />
+                    <address>{user}</address>
+                </Link>
                 <p>{creation_date}</p>
             </div>
 

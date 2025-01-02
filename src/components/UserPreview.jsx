@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router";
 
 function UserPreview(props) {
     const [postObject, setPostObject] = useState("");
@@ -31,10 +32,16 @@ function UserPreview(props) {
     return (
         <div>
             <section>
-                <img src="/icons/userIcon.svg" alt="User" />
+                <Link to={"/user/" + props.id}>
+                    <img src="/icons/userIcon.svg" alt="User" />
+                </Link>
                 <div>
                     <div>
-                        <h1>{props.username}</h1>
+                        <h1>
+                            <Link to={"/user/" + props.id}>
+                                {props.username}
+                            </Link>
+                        </h1>
                         <small>{props.id}</small>
                         {props.admin ? <p>ADMIN</p> : ""}
                         <p>
