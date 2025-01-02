@@ -7,6 +7,7 @@ import Page404 from "./components/Page404";
 import User from "./components/User";
 import Post from "./components/Post";
 import Copyright from "./components/Copyright";
+import AllUsersOrPosts from "./components/AllUsersOrPosts";
 
 const routes = [
     {
@@ -20,21 +21,19 @@ const routes = [
             },
             {
                 path: "/user",
-                children: [
-                    {
-                        path: "/user/:userId",
-                        element: <User />,
-                    },
-                ],
+                element: <AllUsersOrPosts/>,
+            },
+            {
+                path: "/user/:userId",
+                element: <User />,
             },
             {
                 path: "/post",
-                children: [
-                    {
-                        path: "/post/:postId",
-                        element: <Post />,
-                    },
-                ],
+                element: <AllUsersOrPosts />,
+            },
+            {
+                path: "/post/:postId",
+                element: <Post />,
             },
             {
                 path: "login",
