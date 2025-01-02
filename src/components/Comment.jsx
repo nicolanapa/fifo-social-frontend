@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import Like from "./Like";
 
 function Comment(props) {
-    const { user_id, content, likes, creation_date } = props;
+    const { commentId, user_id, content, likes, creation_date } = props;
     const [user, setUser] = useState("");
 
     useEffect(() => {
@@ -37,10 +38,8 @@ function Comment(props) {
             <p>{content}</p>
 
             <footer>
-                <button type="button">
-                    <img src="/icons/thumbsUpIcon.svg" alt="Like this post" />
-                    <p>{likes}</p>
-                </button>
+                <Like id={commentId} likes={likes} postOrComment={"comment"} />
+
                 <button type="button">
                     {/* favorite this comment feature, TBD after favorite a post feature */}
                 </button>
@@ -50,8 +49,9 @@ function Comment(props) {
 }
 
 Comment.propTypes = {
-    user_id: PropTypes.number,
-    content: PropTypes.string,
+    commentId: PropTypes.number.isRequired,
+    user_id: PropTypes.number.isRequired,
+    content: PropTypes.string.isRequired,
     likes: PropTypes.string,
     creation_date: PropTypes.string,
 };
