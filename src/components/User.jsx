@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import PostPreview from "./PostPreview";
+import DeleteX from "./DeleteX";
 
 function User() {
     const { userId } = useParams();
@@ -69,6 +70,9 @@ function User() {
                             : "No description yet!"}
                     </p>
                 </div>
+            </section>
+            <section>
+                <DeleteX xId={userId} typeOfX="user" />
             </section>
             <section>
                 {postObject.length !== 0 ? (

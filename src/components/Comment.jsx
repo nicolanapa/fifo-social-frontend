@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router";
 import Like from "./Like";
+import DeleteX from "./DeleteX";
 
 function Comment(props) {
     const { commentId, user_id, content, likes, creation_date } = props;
@@ -46,6 +47,8 @@ function Comment(props) {
                 <button type="button">
                     {/* favorite this comment feature, TBD after favorite a post feature */}
                 </button>
+
+                <DeleteX xId={commentId} typeOfX="comment" />
             </footer>
         </article>
     );
