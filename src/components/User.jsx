@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import PostPreview from "./PostPreview";
 import DeleteX from "./DeleteX";
+import More from "./More";
 
 function User() {
     const { userId } = useParams();
@@ -71,9 +72,9 @@ function User() {
                     </p>
                 </div>
             </section>
-            <section>
-                <DeleteX xId={userId} typeOfX="user" />
-            </section>
+
+            <More xId={userId} typeOfX={"user"} />
+
             <section>
                 {postObject.length !== 0 ? (
                     postObject.map((post) => {

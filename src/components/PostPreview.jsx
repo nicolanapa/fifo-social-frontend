@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router";
 import Like from "./Like";
 import DeleteX from "./DeleteX";
+import More from "./More";
 
 function PostPreview(props) {
     const { id, user_id, title, content, likes, creation_date } = props;
@@ -75,7 +76,7 @@ function PostPreview(props) {
                     <img src="/icons/messageIconFeather.svg" alt="Comments" />
                 </div>
 
-                <DeleteX xId={id} typeOfX="post" />
+                <More xId={id} typeOfX={"post"} />
             </footer>
         </article>
     );

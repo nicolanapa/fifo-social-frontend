@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
 import Like from "./Like";
-import DeleteX from "./DeleteX";
+import More from "./More";
 
 function Post() {
     const { postId } = useParams();
@@ -102,7 +102,7 @@ function Post() {
                     <img src="/icons/messageIconFeather.svg" alt="Comments" />
                 </div>
 
-                {postObject && <DeleteX xId={postId} typeOfX="post" />}
+                <More xId={postId} typeOfX={"post"} />
             </footer>
 
             <AddComment postId={postId} />

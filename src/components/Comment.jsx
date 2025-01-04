@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router";
 import Like from "./Like";
 import DeleteX from "./DeleteX";
+import More from "./More";
 
 function Comment(props) {
     const { commentId, user_id, content, likes, creation_date } = props;
@@ -48,7 +49,7 @@ function Comment(props) {
                     {/* favorite this comment feature, TBD after favorite a post feature */}
                 </button>
 
-                <DeleteX xId={commentId} typeOfX="comment" />
+                <More xId={commentId} typeOfX={"comment"} />
             </footer>
         </article>
     );
