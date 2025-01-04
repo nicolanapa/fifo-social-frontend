@@ -28,9 +28,10 @@ function EditX({ xId, typeOfX }) {
             const responseObject = await response.json();
 
             if (typeOfX === "user") {
-                setIsOwner(loginInfo.id === responseObject.id ? true : false);
+                setIsOwner(
+                    loginInfo.id === responseObject[0].id ? true : false
+                );
             } else {
-                console.log(responseObject[0]);
                 setIsOwner(
                     loginInfo.id === responseObject[0].user_id ? true : false
                 );
