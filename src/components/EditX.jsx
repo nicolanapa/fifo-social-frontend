@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import LoginContext from "../context/LoginContext";
 import { getLoginObject } from "../scripts/getLoginObject";
 import { useNavigate } from "react-router";
+import { fetchIsOwner } from "../scripts/fetchIsOwner";
 
 function EditX({ xId, typeOfX }) {
     const { loginInfo, setLoginInfo } = useContext(LoginContext);
@@ -10,36 +11,12 @@ function EditX({ xId, typeOfX }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        async function fetchX() {
-            const response = await fetch(
-                import.meta.env.VITE_SERVER_DOMAIN +
-                    ":" +
-                    import.meta.env.VITE_SERVER_PORT +
-                    "/" +
-                    typeOfX +
-                    "/" +
-                    xId,
-                {
-                    method: "GET",
-                    credentials: "include",
-                }
-            );
-
-            const responseObject = await response.json();
-
-            if (typeOfX === "user") {
-                setIsOwner(
-                    loginInfo.id === responseObject[0].id ? true : false
-                );
-            } else {
-                setIsOwner(
-                    loginInfo.id === responseObject[0].user_id ? true : false
-                );
-            }
+        async function settingIsOwner() {
+            setIsOwner(await fetchIsOwner(loginInfo.id, xId, typeOfX));
         }
 
-        fetchX();
-    }, []);
+        settingIsOwner();
+    }, [loginInfo]);
 
     async function editThing() {
         const updatedLoginInfo = await getLoginObject();
