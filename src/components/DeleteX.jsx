@@ -87,14 +87,12 @@ function DeleteX({ xId, typeOfX }) {
 
     return (
         <>
-            {isOwner && (
-                <button onClick={deleteThing}>
-                    <img
-                        src="/icons/deleteIconFeather.svg"
-                        alt={"Delete this " + typeOfX}
-                    />
-                </button>
-            )}
+            <button onClick={deleteThing} disabled={!isOwner}>
+                <img
+                    src="/icons/deleteIconFeather.svg"
+                    alt={"Delete this " + typeOfX}
+                />
+            </button>
         </>
     );
 }
