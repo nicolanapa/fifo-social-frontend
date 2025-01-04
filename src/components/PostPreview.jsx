@@ -7,6 +7,7 @@ import DeleteX from "./DeleteX";
 function PostPreview(props) {
     const { id, user_id, title, content, likes, creation_date } = props;
     const [username, setUsername] = useState("");
+    const [commentsAmount, setCommentsAmount] = useState(0);
 
     useEffect(() => {
         async function fetchUsername() {
@@ -22,9 +23,22 @@ function PostPreview(props) {
                 }
             );
 
-            const responseUserObject = await responseUser.json();
+            const responseComments = await fetch(
+                import.meta.env.VITE_SERVER_DOMAIN +
+                    ":" +
+                    import.meta.env.VITE_SERVER_PORT +
+                    "/post/" +
+                    id +
+                    "/comments",
+                {
+                    method: "GET",
+                    credentials: "include",
+                }
+            );
 
-            setUsername(responseUserObject[0].username);
+            const responseCommentsObject = await responseComments.json();
+
+            setCommentsAmount(responseCommentsObject.length);
         }
 
         fetchUsername();
@@ -56,10 +70,10 @@ function PostPreview(props) {
                     {/* favorite this post feature */}
                 </button>
 
-                {/*<div>
-                    <p>{length}</p>
+                <div>
+                    <p>{commentsAmount}</p>
                     <img src="/icons/messageIconFeather.svg" alt="Comments" />
-                </div>*/}
+                </div>
 
                 <DeleteX xId={id} typeOfX="post" />
             </footer>
