@@ -36,8 +36,10 @@ function PostPreview(props) {
                 }
             );
 
+            const responseUserObject = await responseUser.json();
             const responseCommentsObject = await responseComments.json();
 
+            setUsername(responseUserObject[0].username);
             setCommentsAmount(responseCommentsObject.length);
         }
 
