@@ -1,12 +1,52 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function EditForm({ onClose, onSubmit, typeOfX }) {
+function EditForm({ onClose, onSubmit, typeOfX, xId }) {
     const [inputForm, setInputForm] = useState({
         description: "",
         title: "",
         content: "",
     });
+
+    useEffect(() => {
+        async function fetchInputValue() {
+            const response = await fetch(
+                import.meta.env.VITE_SERVER_DOMAIN +
+                    ":" +
+                    import.meta.env.VITE_SERVER_PORT +
+                    "/" +
+                    typeOfX +
+                    "/" +
+                    xId,
+                {
+                    method: "GET",
+                    credentials: "include",
+                }
+            );
+
+            const responseObject = await response.json();
+
+            if (typeOfX === "user") {
+                setInputForm({
+                    ...inputForm,
+                    description: responseObject[0].description,
+                });
+            } else if (typeOfX === "post") {
+                setInputForm({
+                    ...inputForm,
+                    title: responseObject[0].title,
+                    content: responseObject[0].content,
+                });
+            } else if (typeOfX === "comment") {
+                setInputForm({
+                    ...inputForm,
+                    content: responseObject[0].content,
+                });
+            }
+        }
+
+        fetchInputValue();
+    }, []);
 
     const updateInput = (e) => {
         setInputForm({ ...inputForm, [e.target.name]: e.target.value });
@@ -83,6 +123,7 @@ EditForm.propTypes = {
     onClose: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
     typeOfX: PropTypes.oneOf(["user", "post", "comment"]).isRequired,
+    xId: PropTypes.number.isRequired,
 };
 
 export default EditForm;
