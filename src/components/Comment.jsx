@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router";
 import Like from "./Like";
-import DeleteX from "./DeleteX";
 import More from "./More";
 
 function Comment(props) {
