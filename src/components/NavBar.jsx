@@ -29,6 +29,9 @@ function NavBar() {
                 <NavLink to="/addPost">
                     <img src="/icons/addPostIcon.svg" alt="Add a Post" />
                 </NavLink>
+                <NavLink to="/favorites">
+                    <img src="/icons/favorites.svg" alt="Favorited Elements" />
+                </NavLink>
                 <NavLink to={loginOrUserPath}>
                     <img
                         src="/icons/userIcon.svg"
