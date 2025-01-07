@@ -6,9 +6,47 @@ import { Link } from "react-router";
 function Favorites() {
     const { loginInfo, setLoginInfo } = useContext(LoginContext);
 
+    async function fetchFavorites(id) {
+        const responsePost = await fetch(
+            import.meta.env.VITE_SERVER_DOMAIN +
+                ":" +
+                import.meta.env.VITE_SERVER_PORT +
+                "/favorite/" +
+                id +
+                "/posts",
+            {
+                method: "GET",
+                credentials: "include",
+            }
+        );
+
+        const responseComment = await fetch(
+            import.meta.env.VITE_SERVER_DOMAIN +
+                ":" +
+                import.meta.env.VITE_SERVER_PORT +
+                "/favorite/" +
+                id +
+                "/comments",
+            {
+                method: "GET",
+                credentials: "include",
+            }
+        );
+
+        const responsePostObject = await responsePost.json();
+        const responseCommentObject = await responseComment.json();
+
+        console.log(responsePostObject, responseCommentObject);
+    }
+
     useEffect(() => {
         async function fetchLoginStatus() {
-            setLoginInfo(await getLoginObject());
+            const updatedLoginInfo = await getLoginObject();
+            setLoginInfo(updatedLoginInfo);
+
+            if (updatedLoginInfo.isAuthenticated) {
+                fetchFavorites(updatedLoginInfo.id);
+            }
         }
 
         fetchLoginStatus();
