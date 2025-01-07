@@ -8,6 +8,7 @@ import User from "./components/User";
 import Post from "./components/Post";
 import Copyright from "./components/Copyright";
 import AllUsersOrPosts from "./components/AllUsersOrPosts";
+import Favorites from "./components/Favorites";
 
 const routes = [
     {
@@ -21,7 +22,7 @@ const routes = [
             },
             {
                 path: "/user",
-                element: <AllUsersOrPosts/>,
+                element: <AllUsersOrPosts />,
             },
             {
                 path: "/user/:userId",
@@ -42,6 +43,10 @@ const routes = [
             {
                 path: "addPost",
                 element: <AddPost />,
+            },
+            {
+                path: "favorites",
+                element: <Favorites />,
             },
             {
                 path: "errorPage",
