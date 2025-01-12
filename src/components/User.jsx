@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import PostPreview from "./PostPreview";
 import More from "./More";
+import FollowUser from "./FollowUser";
 
 function User() {
     const { userId } = useParams();
@@ -72,7 +73,10 @@ function User() {
                 </div>
             </section>
 
-            <More xId={userId} typeOfX={"user"} />
+            <div>
+                <FollowUser userId={userId} />
+                <More xId={userId} typeOfX={"user"} />
+            </div>
 
             <section>
                 {postObject.length !== 0 ? (

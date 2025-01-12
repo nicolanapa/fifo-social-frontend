@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router";
+import FollowUser from "./FollowUser";
 
 function UserPreview(props) {
     const [postObject, setPostObject] = useState("");
@@ -57,7 +58,10 @@ function UserPreview(props) {
                 </div>
             </section>
 
-            <section>{postObject.length} posts</section>
+            <section>
+                <p>{postObject.length} posts</p>
+                <FollowUser userId={props.id} />
+            </section>
         </div>
     );
 }
