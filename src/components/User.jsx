@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, Outlet, useParams } from "react-router";
 import PostPreview from "./PostPreview";
 import More from "./More";
 import FollowUser from "./FollowUser";
@@ -51,6 +51,8 @@ function User() {
 
     return (
         <div>
+            <Outlet />
+
             <section>
                 <img src="/icons/userIcon.svg" alt="User" />
                 <div>
@@ -75,6 +77,12 @@ function User() {
 
             <div>
                 <FollowUser userId={userId} />
+                <button>
+                    <Link to={"./followers"}>{userObject.followers} Followers</Link>
+                </button>
+                <button>
+                    <Link to={"./followed"}>{userObject.followed} Followed</Link>
+                </button>
                 <More xId={userId} typeOfX={"user"} />
             </div>
 
