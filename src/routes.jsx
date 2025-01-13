@@ -9,6 +9,7 @@ import Post from "./components/Post";
 import Copyright from "./components/Copyright";
 import AllUsersOrPosts from "./components/AllUsersOrPosts";
 import Favorites from "./components/Favorites";
+import AllFollowersOrFollowed from "./components/AllFollowersOrFollowed";
 
 const routes = [
     {
@@ -27,6 +28,20 @@ const routes = [
             {
                 path: "/user/:userId",
                 element: <User />,
+                children: [
+                    {
+                        path: "/user/:userId/followers",
+                        element: (
+                            <AllFollowersOrFollowed typeOfX={"followers"} />
+                        ),
+                    },
+                    {
+                        path: "/user/:userId/followed",
+                        element: (
+                            <AllFollowersOrFollowed typeOfX={"followed"} />
+                        ),
+                    },
+                ],
             },
             {
                 path: "/post",
