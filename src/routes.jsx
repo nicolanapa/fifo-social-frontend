@@ -31,15 +31,11 @@ const routes = [
                 children: [
                     {
                         path: "/user/:userId/followers",
-                        element: (
-                            <AllFollowersOrFollowed typeOfX={"followers"} />
-                        ),
+                        element: <AllFollowersOrFollowed />,
                     },
                     {
                         path: "/user/:userId/followed",
-                        element: (
-                            <AllFollowersOrFollowed typeOfX={"followed"} />
-                        ),
+                        element: <AllFollowersOrFollowed />,
                     },
                 ],
             },
