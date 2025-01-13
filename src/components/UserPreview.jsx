@@ -59,6 +59,16 @@ function UserPreview(props) {
             </section>
 
             <section>
+                <button>
+                    <Link to={"./" + props.id + "/followers"}>
+                        {props.followers} Followers
+                    </Link>
+                </button>
+                <button>
+                    <Link to={"./" + props.id + "/followed"}>
+                        {props.followed} Followed
+                    </Link>
+                </button>
                 <p>{postObject.length} posts</p>
                 <FollowUser userId={props.id} />
             </section>
@@ -72,6 +82,10 @@ UserPreview.propTypes = {
     description: PropTypes.string.isRequired,
     admin: PropTypes.bool.isRequired,
     creation_date: PropTypes.string.isRequired,
+    followers: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
+    followed: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
 };
 
 export default UserPreview;
