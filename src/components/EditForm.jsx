@@ -55,7 +55,13 @@ function EditForm({ onClose, onSubmit, typeOfX, xId }) {
     return (
         <div>
             <form
-                action={import.meta.env.VITE_SERVER_FULL_DOMAIN + "/" + typeOfX}
+                action={
+                    import.meta.env.VITE_SERVER_FULL_DOMAIN +
+                    "/" +
+                    typeOfX +
+                    "/" +
+                    xId
+                }
                 method="POST"
                 onSubmit={onSubmit}
             >

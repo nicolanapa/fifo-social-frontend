@@ -10,20 +10,17 @@ function Login() {
     async function handleLogin(e) {
         e.preventDefault();
 
-        const response = await fetch(
-            import.meta.env.VITE_SERVER_FULL_DOMAIN + "/login",
-            {
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                method: "POST",
-                body: new URLSearchParams({
-                    username: e.target.username.value,
-                    password: e.target.password.value,
-                }),
-                credentials: "include",
-            }
-        );
+        const response = await fetch(e.target.action, {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            method: e.target.method,
+            body: new URLSearchParams({
+                username: e.target.username.value,
+                password: e.target.password.value,
+            }),
+            credentials: "include",
+        });
 
         const responseStatus = await response.json();
 
@@ -38,20 +35,17 @@ function Login() {
     async function handleSignup(e) {
         e.preventDefault();
 
-        const response = await fetch(
-            import.meta.env.VITE_SERVER_FULL_DOMAIN + "/user",
-            {
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                method: "POST",
-                body: new URLSearchParams({
-                    username: e.target.username.value,
-                    description: e.target.description.value,
-                }),
-                credentials: "include",
-            }
-        );
+        const response = await fetch(e.target.action, {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            method: e.target.method,
+            body: new URLSearchParams({
+                username: e.target.username.value,
+                description: e.target.description.value,
+            }),
+            credentials: "include",
+        });
 
         const responseStatus = await response.json();
 
@@ -77,7 +71,8 @@ function Login() {
                 ) : (
                     <>
                         <p>
-                            You aren&apos;t logged in. You should Login or Signup!
+                            You aren&apos;t logged in. You should Login or
+                            Signup!
                         </p>
                     </>
                 )}
