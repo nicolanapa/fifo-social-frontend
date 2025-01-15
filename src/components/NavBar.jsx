@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import LoginContext from "../context/LoginContext.jsx";
+import SearchForm from "./SearchForm.jsx";
 
 function NavBar() {
     const [loginOrUserPath, setLoginOrUserPath] = useState("/login");
@@ -20,12 +21,7 @@ function NavBar() {
                 <NavLink to="/">
                     <img src="/icons/homeIcon.svg" alt="Home" />
                 </NavLink>
-                <div>
-                    <input type="text" />
-                    <button type="submit">
-                        <img src="/icons/searchIcon.svg" alt="Search" />
-                    </button>
-                </div>
+                <SearchForm />
                 <NavLink to="/addPost">
                     <img src="/icons/addPostIcon.svg" alt="Add a Post" />
                 </NavLink>
