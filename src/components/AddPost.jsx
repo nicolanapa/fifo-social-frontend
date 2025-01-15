@@ -22,20 +22,17 @@ function AddPost() {
         setLoginInfo(isUserStillLoggedIn);
 
         if (isUserStillLoggedIn.isAuthenticated) {
-            const response = await fetch(
-                import.meta.env.VITE_SERVER_FULL_DOMAIN + "/post",
-                {
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded",
-                    },
-                    method: "POST",
-                    body: new URLSearchParams({
-                        title: e.target.title.value,
-                        content: e.target.content.value,
-                    }),
-                    credentials: "include",
-                }
-            );
+            const response = await fetch(e.target.action, {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                method: e.target.method,
+                body: new URLSearchParams({
+                    title: e.target.title.value,
+                    content: e.target.content.value,
+                }),
+                credentials: "include",
+            });
 
             const responseStatus = await response.json();
 

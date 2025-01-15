@@ -23,19 +23,16 @@ function AddComment({ postId }) {
         setLoginInfo(isUserStillLoggedIn);
 
         if (isUserStillLoggedIn.isAuthenticated) {
-            const response = await fetch(
-                import.meta.env.VITE_SERVER_FULL_DOMAIN + "/comment/" + postId,
-                {
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded",
-                    },
-                    method: "POST",
-                    body: new URLSearchParams({
-                        content: e.target.content.value,
-                    }),
-                    credentials: "include",
-                }
-            );
+            const response = await fetch(e.target.action, {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                method: e.target.method,
+                body: new URLSearchParams({
+                    content: e.target.content.value,
+                }),
+                credentials: "include",
+            });
 
             const responseStatus = await response.json();
 
@@ -63,7 +60,9 @@ function AddComment({ postId }) {
             {loginInfo.isAuthenticated ? (
                 <form
                     action={
-                        import.meta.env.VITE_SERVER_FULL_DOMAIN + "/comment"
+                        import.meta.env.VITE_SERVER_FULL_DOMAIN +
+                        "/comment/" +
+                        postId
                     }
                     method="POST"
                     onSubmit={handleComment}

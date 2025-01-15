@@ -39,33 +39,24 @@ function EditX({ xId, typeOfX }) {
         await setLoginInfo(updatedLoginInfo);
 
         if (updatedLoginInfo.isAuthenticated && isOwner) {
-            const response = await fetch(
-                import.meta.env.VITE_SERVER_DOMAIN +
-                    ":" +
-                    import.meta.env.VITE_SERVER_PORT +
-                    "/" +
-                    typeOfX +
-                    "/" +
-                    xId,
-                {
-                    method: "PATCH",
-                    body: new URLSearchParams(
-                        typeOfX === "user"
-                            ? {
-                                  description: e.target.description.value,
-                              }
-                            : typeOfX === "post"
-                            ? {
-                                  title: e.target.title.value,
-                                  content: e.target.content.value,
-                              }
-                            : {
-                                  content: e.target.content.value,
-                              }
-                    ),
-                    credentials: "include",
-                }
-            );
+            const response = await fetch(e.target.action, {
+                method: "PATCH",
+                body: new URLSearchParams(
+                    typeOfX === "user"
+                        ? {
+                              description: e.target.description.value,
+                          }
+                        : typeOfX === "post"
+                        ? {
+                              title: e.target.title.value,
+                              content: e.target.content.value,
+                          }
+                        : {
+                              content: e.target.content.value,
+                          }
+                ),
+                credentials: "include",
+            });
 
             const responseStatus = await response.json();
 
