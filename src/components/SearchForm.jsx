@@ -14,27 +14,33 @@ function SearchForm() {
             method="GET"
             onSubmit={handleSearching}
         >
-            <input
-                type="search"
+            <input type="search" name="searchInput" id="search-input" />
+
+            <button
+                type="button"
                 onClick={() => {
                     setHiddenSelect(!hiddenSelect);
                 }}
-            />
-
-            <label htmlFor="type-of-search" hidden={hiddenSelect}>
-                Search by
-            </label>
-            <select
-                name="typeOfSearch"
-                id="type-of-search"
-                value={selectedOption}
-                onChange={(e) => setSelectedOption(e.target.value)}
-                hidden={hiddenSelect}
             >
-                <option value="global">All</option>
-                <option value="users">Users</option>
-                <option value="posts">Posts</option>
-            </select>
+                <img src="/icons/searchTypeIcon.svg" alt="Search options" />
+            </button>
+
+            <div>
+                <label htmlFor="type-of-search" hidden={hiddenSelect}>
+                    Search by
+                </label>
+                <select
+                    name="typeOfSearch"
+                    id="type-of-search"
+                    value={selectedOption}
+                    onChange={(e) => setSelectedOption(e.target.value)}
+                    hidden={hiddenSelect}
+                >
+                    <option value="global">All</option>
+                    <option value="users">Users</option>
+                    <option value="posts">Posts</option>
+                </select>
+            </div>
             {/*selectedOption === "global" ? (
                 <img src="/icons/userIcon.svg" alt="Global Search" />
             ) : selectedOption === "users" ? (
