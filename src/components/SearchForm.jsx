@@ -6,6 +6,24 @@ function SearchForm() {
 
     async function handleSearching(e) {
         e.preventDefault();
+
+        console.log(e.target.searchInput.value);
+
+        const response = await fetch(
+            e.target.action +
+                "/?" +
+                selectedOption +
+                "=" +
+                e.target.searchInput.value,
+            {
+                method: "GET",
+                credentials: "include",
+            }
+        );
+
+        const responseObject = await response.json();
+
+        console.log(responseObject);
     }
 
     return (
