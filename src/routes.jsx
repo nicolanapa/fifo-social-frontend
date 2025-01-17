@@ -10,6 +10,7 @@ import Copyright from "./components/Copyright";
 import AllUsersOrPosts from "./components/AllUsersOrPosts";
 import Favorites from "./components/Favorites";
 import AllFollowersOrFollowed from "./components/AllFollowersOrFollowed";
+import SearchResult from "./components/SearchResult";
 
 const routes = [
     {
@@ -46,6 +47,10 @@ const routes = [
             {
                 path: "/post/:postId",
                 element: <Post />,
+            },
+            {
+                path: "search",
+                element: <SearchResult />,
             },
             {
                 path: "login",
