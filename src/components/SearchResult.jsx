@@ -7,7 +7,13 @@ function SearchResult() {
     const { array = [] } = state;
     let { typeOfSearch = "" } = state;
 
-    if (array.length === 0 && typeOfSearch !== "") {
+    if (
+        (array.length === 0 && typeOfSearch !== "") ||
+        (array.length === 2 &&
+            array[0].length === 0 &&
+            array[1].length === 0 &&
+            typeOfSearch === "global")
+    ) {
         typeOfSearch = "empty";
     }
 
