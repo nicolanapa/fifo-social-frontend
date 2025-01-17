@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 function SearchForm() {
     const [selectedOption, setSelectedOption] = useState("global");
     const [hiddenSelect, setHiddenSelect] = useState(true);
+    const navigate = useNavigate();
 
     async function handleSearching(e) {
         e.preventDefault();
@@ -24,6 +26,10 @@ function SearchForm() {
         const responseObject = await response.json();
 
         console.log(responseObject);
+
+        navigate("/search", {
+            state: { array: responseObject, typeOfSearch: selectedOption },
+        });
     }
 
     return (
