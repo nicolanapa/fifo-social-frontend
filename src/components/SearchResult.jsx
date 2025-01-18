@@ -1,4 +1,6 @@
 import { useLocation } from "react-router";
+import UserPreview from "./UserPreview";
+import PostPreview from "./PostPreview";
 
 function SearchResult() {
     const location = useLocation();
@@ -24,11 +26,82 @@ function SearchResult() {
             {typeOfSearch === "empty" ? (
                 <p>No results found!</p>
             ) : typeOfSearch === "global" ? (
-                <p>Global</p>
+                <>
+                    <p>Global</p>
+                    <h2>Users Found</h2>
+                    {array[0].map((user) => {
+                        const randomKey = crypto.randomUUID();
+
+                        return (
+                            <UserPreview
+                                id={user.id}
+                                username={user.username}
+                                description={user.description}
+                                admin={user.admin}
+                                creation_date={user.account_creation_date}
+                                followers={user.followers}
+                                followed={user.followed}
+                                key={randomKey}
+                            />
+                        );
+                    })}
+
+                    <h2>Posts Found</h2>
+                    {array[1].map((post) => {
+                        const randomKey = crypto.randomUUID();
+
+                        return (
+                            <PostPreview
+                                id={post.id}
+                                user_id={post.user_id}
+                                title={post.title}
+                                content={post.content}
+                                likes={post.likes}
+                                creation_date={post.creation_date}
+                                key={randomKey}
+                            />
+                        );
+                    })}
+                </>
             ) : typeOfSearch === "users" ? (
-                <p>User</p>
+                <>
+                    <h2>Users Found</h2>
+                    {array.map((user) => {
+                        const randomKey = crypto.randomUUID();
+
+                        return (
+                            <UserPreview
+                                id={user.id}
+                                username={user.username}
+                                description={user.description}
+                                admin={user.admin}
+                                creation_date={user.account_creation_date}
+                                followers={user.followers}
+                                followed={user.followed}
+                                key={randomKey}
+                            />
+                        );
+                    })}
+                </>
             ) : typeOfSearch === "posts" ? (
-                <p>Post</p>
+                <>
+                    <h2>Posts Found</h2>
+                    {array.map((post) => {
+                        const randomKey = crypto.randomUUID();
+
+                        return (
+                            <PostPreview
+                                id={post.id}
+                                user_id={post.user_id}
+                                title={post.title}
+                                content={post.content}
+                                likes={post.likes}
+                                creation_date={post.creation_date}
+                                key={randomKey}
+                            />
+                        );
+                    })}
+                </>
             ) : (
                 <p>Search something first!</p>
             )}
