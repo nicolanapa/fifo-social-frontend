@@ -38,7 +38,7 @@ function SearchForm() {
             method="GET"
             onSubmit={handleSearching}
         >
-            <input type="search" name="searchInput" id="search-input" />
+            <input type="search" name="searchInput" id="search-input" required />
 
             <button
                 type="button"
