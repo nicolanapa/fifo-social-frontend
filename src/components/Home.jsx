@@ -12,50 +12,19 @@ function Home() {
 
     // Reduce to one single fetch function with parameters
     // If they're not used for anything other than fetching
-    async function fetchUsers() {
-        const response = await fetch(
-            import.meta.env.VITE_SERVER_DOMAIN +
-                ":" +
-                import.meta.env.VITE_SERVER_PORT +
-                "/user",
-            {
-                method: "GET",
-                credentials: "include",
-            }
-        );
-
-        const responseObject = await response.json();
-
-        return responseObject;
-    }
-
-    async function fetchFollowed(userId) {
+    async function fetchX(typeOfX, userId = 1) {
         const response = await fetch(
             import.meta.env.VITE_SERVER_DOMAIN +
                 ":" +
                 import.meta.env.VITE_SERVER_PORT +
                 "/user/" +
-                userId +
-                "/followed",
-            {
-                method: "GET",
-                credentials: "include",
-            }
-        );
-
-        const responseObject = await response.json();
-
-        return responseObject;
-    }
-
-    async function fetchPosts(userId) {
-        const response = await fetch(
-            import.meta.env.VITE_SERVER_DOMAIN +
-                ":" +
-                import.meta.env.VITE_SERVER_PORT +
-                "/user/" +
-                userId +
-                "/posts",
+                (typeOfX === "users"
+                    ? ""
+                    : typeOfX === "followed"
+                    ? userId + "/followed"
+                    : typeOfX === "posts"
+                    ? userId + "/posts"
+                    : ""),
             {
                 method: "GET",
                 credentials: "include",
@@ -71,14 +40,17 @@ function Home() {
         let postsTemp = [];
         let postsKeyTemp = [];
 
-        const followedUsers = await fetchFollowed(userId);
+        const followedUsers = await fetchX("followed", userId);
 
         for (let i = 0; i < followedUsers.length; i++) {
             if (i === 20) {
                 break;
             }
 
-            const allUserPosts = await fetchPosts(followedUsers[i].followed_id);
+            const allUserPosts = await fetchX(
+                "posts",
+                followedUsers[i].followed_id
+            );
 
             if (allUserPosts.length === 0) continue;
 
@@ -106,7 +78,7 @@ function Home() {
                 break;
             }
 
-            const allUserPosts = await fetchPosts(allUsers[i].id);
+            const allUserPosts = await fetchX("posts", allUsers[i].id);
 
             if (allUserPosts.length === 0) continue;
 
@@ -127,7 +99,7 @@ function Home() {
 
     useEffect(() => {
         async function fetchEverything() {
-            const allUsers = await fetchUsers();
+            const allUsers = await fetchX("users");
             let usersTemp = [];
             let postsTemp = [];
             let usersKeyTemp = [];
