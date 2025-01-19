@@ -65,6 +65,38 @@ function Home() {
         return responseObject;
     }
 
+    async function fetchAuthenticated(userId) {
+        let postsTemp = [];
+        let postsKeyTemp = [];
+
+        const followedUsers = await fetchFollowed(userId);
+
+        for (let i = 0; i < followedUsers.length; i++) {
+            if (i === 20) {
+                break;
+            }
+
+            const allUserPosts = await fetchPosts(followedUsers[i].followed_id);
+
+            if (allUserPosts.length === 0) continue;
+
+            for (let i2 = 0; i2 < allUserPosts.length; i2++) {
+                if (i2 === 10) {
+                    break;
+                }
+
+                postsTemp.push(allUserPosts[i2]);
+                postsKeyTemp.push(crypto.randomUUID());
+            }
+        }
+
+        console.log(postsTemp);
+
+        return { postsTemp, postsKeyTemp };
+    }
+
+    async function fetchNotAuthenticated() {}
+
     useEffect(() => {
         async function fetchEverything() {
             const allUsers = await fetchUsers();
@@ -74,33 +106,21 @@ function Home() {
             let postsKeyTemp = [];
 
             if (loginInfo.isAuthenticated) {
-                const followedUsers = await fetchFollowed(loginInfo.id);
-                console.log(followedUsers);
-                console.log(await fetchFollowed(1));
+                ({ postsTemp, postsKeyTemp } = await fetchAuthenticated(
+                    loginInfo.id
+                ));
 
-                for (let i = 0; i < followedUsers.length; i++) {
-                    if (i === 20) {
-                        break;
-                    }
+                console.log(1111, postsTemp, postsKeyTemp);
+            } else {
+                //({ postsTemp, postsKeyTemp } = await fetchNotAuthenticated());
 
-                    const allUserPosts = await fetchPosts(
-                        followedUsers[i].followed_id
-                    );
-
-                    if (allUserPosts.length === 0) continue;
-
-                    for (let i2 = 0; i2 < allUserPosts.length; i2++) {
-                        if (i2 === 10) {
-                            break;
-                        }
-
-                        postsTemp.push(allUserPosts[i2]);
-                        postsKeyTemp.push(crypto.randomUUID());
-                    }
-                }
-
-                console.log(postsTemp);
+                console.log(2222, postsTemp, postsKeyTemp);
             }
+
+            setUsers(usersTemp);
+            setPosts(postsTemp);
+            setUsersKey(usersKeyTemp);
+            setPostsKey(postsKeyTemp);
         }
 
         fetchEverything();
