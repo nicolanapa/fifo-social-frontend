@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import LoginContext from "../context/LoginContext";
+import PostPreview from "./PostPreview";
+import { getLoginObject } from "../scripts/getLoginObject";
 
 function Home() {
     const { loginInfo, setLoginInfo } = useContext(LoginContext);
@@ -105,9 +107,13 @@ function Home() {
             let usersKeyTemp = [];
             let postsKeyTemp = [];
 
-            if (loginInfo.isAuthenticated) {
+            const updatedLoginInfo = await getLoginObject();
+
+            setLoginInfo(updatedLoginInfo);
+
+            if (updatedLoginInfo.isAuthenticated) {
                 ({ postsTemp, postsKeyTemp } = await fetchAuthenticated(
-                    loginInfo.id
+                    updatedLoginInfo.id
                 ));
 
                 console.log(1111, postsTemp, postsKeyTemp);
@@ -117,14 +123,14 @@ function Home() {
                 console.log(2222, postsTemp, postsKeyTemp);
             }
 
-            setUsers(usersTemp);
-            setPosts(postsTemp);
             setUsersKey(usersKeyTemp);
             setPostsKey(postsKeyTemp);
+            setUsers(usersTemp);
+            setPosts(postsTemp);
         }
 
         fetchEverything();
-    }, [loginInfo]);
+    }, []);
 
     return (
         <>
@@ -149,6 +155,18 @@ function Home() {
 
             <section>
                 {/* random posts if not logged in / posts from followed user list if logged in*/}
+                {posts &&
+                    posts.map((post, i) => (
+                        <PostPreview
+                            id={post.id}
+                            user_id={post.user_id}
+                            title={post.title}
+                            content={post.content}
+                            likes={post.likes}
+                            creation_date={post.creation_date}
+                            key={postsKey[i]}
+                        />
+                    ))}
             </section>
         </>
     );
