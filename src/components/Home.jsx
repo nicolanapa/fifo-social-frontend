@@ -97,7 +97,33 @@ function Home() {
         return { postsTemp, postsKeyTemp };
     }
 
-    async function fetchNotAuthenticated() {}
+    async function fetchNotAuthenticated(allUsers) {
+        let postsTemp = [];
+        let postsKeyTemp = [];
+
+        for (let i = 0; i < allUsers.length; i++) {
+            if (i === 20) {
+                break;
+            }
+
+            const allUserPosts = await fetchPosts(allUsers[i].id);
+
+            if (allUserPosts.length === 0) continue;
+
+            for (let i2 = 0; i2 < allUserPosts.length; i2++) {
+                if (i2 === 5) {
+                    break;
+                }
+
+                postsTemp.push(allUserPosts[i2]);
+                postsKeyTemp.push(crypto.randomUUID());
+            }
+        }
+
+        console.log(postsTemp);
+
+        return { postsTemp, postsKeyTemp };
+    }
 
     useEffect(() => {
         async function fetchEverything() {
@@ -115,12 +141,10 @@ function Home() {
                 ({ postsTemp, postsKeyTemp } = await fetchAuthenticated(
                     updatedLoginInfo.id
                 ));
-
-                console.log(1111, postsTemp, postsKeyTemp);
             } else {
-                //({ postsTemp, postsKeyTemp } = await fetchNotAuthenticated());
-
-                console.log(2222, postsTemp, postsKeyTemp);
+                ({ postsTemp, postsKeyTemp } = await fetchNotAuthenticated(
+                    allUsers
+                ));
             }
 
             setUsersKey(usersKeyTemp);
