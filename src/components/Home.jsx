@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import LoginContext from "../context/LoginContext";
 import PostPreview from "./PostPreview";
 import { getLoginObject } from "../scripts/getLoginObject";
+import UserPreview from "./UserPreview";
 
 function Home() {
     const { loginInfo, setLoginInfo } = useContext(LoginContext);
@@ -147,6 +148,19 @@ function Home() {
                 <h2>Recommended People</h2>
 
                 {/* random users, UserPreview*/}
+                {users &&
+                    users.map((user, i) => (
+                        <UserPreview
+                            id={user.id}
+                            username={user.username}
+                            description={user.description}
+                            admin={user.admin}
+                            creation_date={user.account_creation_date}
+                            followers={user.followers}
+                            followed={user.followed}
+                            key={usersKey[i]}
+                        />
+                    ))}
             </section>
 
             <section>
