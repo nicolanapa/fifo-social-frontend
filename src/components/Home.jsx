@@ -11,8 +11,6 @@ function Home() {
     const [usersKey, setUsersKey] = useState([]);
     const [postsKey, setPostsKey] = useState([]);
 
-    // Reduce to one single fetch function with parameters
-    // If they're not used for anything other than fetching
     async function fetchX(typeOfX, userId = 1) {
         const response = await fetch(
             import.meta.env.VITE_SERVER_DOMAIN +
