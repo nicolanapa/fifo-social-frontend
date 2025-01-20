@@ -19,6 +19,8 @@ function Home() {
                 "/user/" +
                 (typeOfX === "users"
                     ? ""
+                    : typeOfX === "user"
+                    ? userId
                     : typeOfX === "followed"
                     ? userId + "/followed"
                     : typeOfX === "posts"
@@ -35,7 +37,9 @@ function Home() {
         return responseObject;
     }
 
-    async function fetchAuthenticated(userId) {
+    async function fetchAuthenticated(userId, allUsers) {
+        let usersTemp = [];
+        let usersKeyTemp = [];
         let postsTemp = [];
         let postsKeyTemp = [];
 
@@ -63,9 +67,34 @@ function Home() {
             }
         }
 
+        let randomNumbers = [];
+        for (let i = 0; i < allUsers.length; i++) {
+            if (i === 4) {
+                break;
+            }
+
+            let i2 = 0;
+            let newNumber = Math.floor(Math.random() * allUsers.length);
+            while (randomNumbers.includes(newNumber) && i2 < 5) {
+                newNumber = Math.floor(Math.random() * allUsers.length);
+
+                i2++;
+            }
+
+            if (!randomNumbers.includes(newNumber)) {
+                randomNumbers.push(newNumber);
+
+                const user = await fetchX("user", allUsers[newNumber].id);
+
+                usersTemp.push(user[0]);
+                usersKeyTemp.push(crypto.randomUUID());
+            }
+        }
+        console.log(randomNumbers, allUsers);
+
         console.log(postsTemp);
 
-        return { postsTemp, postsKeyTemp };
+        return { postsTemp, postsKeyTemp, usersTemp, usersKeyTemp };
     }
 
     async function fetchNotAuthenticated(allUsers) {
@@ -109,9 +138,8 @@ function Home() {
             setLoginInfo(updatedLoginInfo);
 
             if (updatedLoginInfo.isAuthenticated) {
-                ({ postsTemp, postsKeyTemp } = await fetchAuthenticated(
-                    updatedLoginInfo.id
-                ));
+                ({ postsTemp, postsKeyTemp, usersTemp, usersKeyTemp } =
+                    await fetchAuthenticated(updatedLoginInfo.id, allUsers));
             } else {
                 ({ postsTemp, postsKeyTemp } = await fetchNotAuthenticated(
                     allUsers
@@ -142,27 +170,27 @@ function Home() {
                 )}
             </div>
 
-            <section>
-                <h2>Recommended People</h2>
+            {loginInfo.isAuthenticated && (
+                <section>
+                    <h2>Recommended People</h2>
 
-                {/* random users, UserPreview*/}
-                {users &&
-                    users.map((user, i) => (
-                        <UserPreview
-                            id={user.id}
-                            username={user.username}
-                            description={user.description}
-                            admin={user.admin}
-                            creation_date={user.account_creation_date}
-                            followers={user.followers}
-                            followed={user.followed}
-                            key={usersKey[i]}
-                        />
-                    ))}
-            </section>
+                    {users &&
+                        users.map((user, i) => (
+                            <UserPreview
+                                id={user.id}
+                                username={user.username}
+                                description={user.description}
+                                admin={user.admin}
+                                creation_date={user.account_creation_date}
+                                followers={user.followers}
+                                followed={user.followed}
+                                key={usersKey[i]}
+                            />
+                        ))}
+                </section>
+            )}
 
             <section>
-                {/* random posts if not logged in / posts from followed user list if logged in*/}
                 {posts &&
                     posts.map((post, i) => (
                         <PostPreview
