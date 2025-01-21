@@ -75,13 +75,22 @@ function Home() {
 
             let i2 = 0;
             let newNumber = Math.floor(Math.random() * allUsers.length);
-            while (randomNumbers.includes(newNumber) && i2 < 5) {
+            while (randomNumbers.includes(newNumber) && i2 < 10) {
                 newNumber = Math.floor(Math.random() * allUsers.length);
 
                 i2++;
             }
 
-            if (!randomNumbers.includes(newNumber)) {
+            const followedUserId = allUsers[newNumber].id;
+            const isAlreadyFollowed = followedUsers.some(
+                (user) => user.followed_id === followedUserId
+            );
+
+            if (
+                !randomNumbers.includes(newNumber) &&
+                !isAlreadyFollowed &&
+                allUsers[newNumber].id !== userId
+            ) {
                 randomNumbers.push(newNumber);
 
                 const user = await fetchX("user", allUsers[newNumber].id);
@@ -90,9 +99,6 @@ function Home() {
                 usersKeyTemp.push(crypto.randomUUID());
             }
         }
-        console.log(randomNumbers, allUsers);
-
-        console.log(postsTemp);
 
         return { postsTemp, postsKeyTemp, usersTemp, usersKeyTemp };
     }
