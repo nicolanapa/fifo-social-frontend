@@ -1,0 +1,13 @@
+.navbar-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1.2fr;
+    justify-items: center;
+    align-items: center;
+    padding: 15px 5px;
+    margin-bottom: 15px;
+}
+
+.navbar-container > div > img {
+    padding: 10px;
+    margin: 5px;
+}
