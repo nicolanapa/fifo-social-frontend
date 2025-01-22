@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import LoginContext from "../context/LoginContext.jsx";
 import SearchForm from "./SearchForm.jsx";
+import "../styles/navBar.css";
 
 function NavBar() {
     const [loginOrUserPath, setLoginOrUserPath] = useState("/login");
@@ -17,27 +18,34 @@ function NavBar() {
 
     return (
         <header>
-            <nav>
-                <NavLink to="/">
-                    <img src="/icons/homeIcon.svg" alt="Home" />
-                </NavLink>
+            <nav className="navbar-container">
+                <div>
+                    <NavLink to="/">
+                        <img src="/icons/homeIcon.svg" alt="Home" />
+                    </NavLink>
+                </div>
                 <SearchForm />
-                <NavLink to="/addPost">
-                    <img src="/icons/addPostIcon.svg" alt="Add a Post" />
-                </NavLink>
-                <NavLink to="/favorites">
-                    <img src="/icons/favorites.svg" alt="Favorited Elements" />
-                </NavLink>
-                <NavLink to={loginOrUserPath}>
-                    <img
-                        src="/icons/userIcon.svg"
-                        alt={
-                            loginOrUserPath === "/login"
-                                ? "Login Page"
-                                : "Your Account"
-                        }
-                    />
-                </NavLink>
+                <div>
+                    <NavLink to="/addPost">
+                        <img src="/icons/addPostIcon.svg" alt="Add a Post" />
+                    </NavLink>
+                    <NavLink to="/favorites">
+                        <img
+                            src="/icons/favorites.svg"
+                            alt="Favorited Elements"
+                        />
+                    </NavLink>
+                    <NavLink to={loginOrUserPath}>
+                        <img
+                            src="/icons/userIcon.svg"
+                            alt={
+                                loginOrUserPath === "/login"
+                                    ? "Login Page"
+                                    : "Your Account"
+                            }
+                        />
+                    </NavLink>
+                </div>
             </nav>
         </header>
     );
