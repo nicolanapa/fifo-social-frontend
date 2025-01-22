@@ -37,14 +37,21 @@ function SearchForm() {
             action={import.meta.env.VITE_SERVER_FULL_DOMAIN + "/search"}
             method="GET"
             onSubmit={handleSearching}
+            className="search-form"
         >
-            <input type="search" name="searchInput" id="search-input" required />
+            <input
+                type="search"
+                name="searchInput"
+                id="search-input"
+                required
+            />
 
             <button
                 type="button"
                 onClick={() => {
                     setHiddenSelect(!hiddenSelect);
                 }}
+                className="styled-button"
             >
                 <img src="/icons/searchTypeIcon.svg" alt="Search options" />
             </button>
@@ -72,7 +79,7 @@ function SearchForm() {
             ) : (
                 "Post"
             )*/}
-            <button type="submit">
+            <button type="submit" className="styled-button">
                 <img src="/icons/searchIcon.svg" alt="Search" />
             </button>
         </form>
