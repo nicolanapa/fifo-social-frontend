@@ -4,6 +4,7 @@ import Comment from "./Comment";
 import AddComment from "./AddComment";
 import Like from "./Like";
 import More from "./More";
+import "../styles/posts.css";
 
 function Post() {
     const { postId } = useParams();
@@ -68,12 +69,12 @@ function Post() {
     }, []);
 
     return (
-        <article>
-            <div>
+        <article className="post-container">
+            <div className="user-info">
                 <Link to={"/user/" + postObject.user_id}>
                     <img src="/icons/userIcon.svg" alt="User" />
                 </Link>
-                <div>
+                <div className="username">
                     <Link to={"/user/" + postObject.user_id}>
                         <address>{postObject.username}</address>
                     </Link>
@@ -81,10 +82,12 @@ function Post() {
                 </div>
             </div>
 
-            <h1>{postObject.title}</h1>
-            <p>{postObject.content}</p>
+            <div className="post-content">
+                <h1>{postObject.title}</h1>
+                <p>{postObject.content}</p>
+            </div>
 
-            <footer>
+            <footer className="post-tools">
                 {postObject && (
                     <Like
                         id={postId}
@@ -93,11 +96,7 @@ function Post() {
                     />
                 )}
 
-                <button type="button">
-                    {/* favorite this post feature */}
-                </button>
-
-                <div>
+                <div className="comments-count">
                     <p>{commentsObject.length}</p>
                     <img src="/icons/messageIconFeather.svg" alt="Comments" />
                 </div>
@@ -107,7 +106,7 @@ function Post() {
 
             <AddComment postId={postId} />
 
-            <section>
+            <section className="comments-section">
                 {commentsObject.length !== 0 ? (
                     commentsObject.map((comment) => {
                         const randomKey = crypto.randomUUID();
