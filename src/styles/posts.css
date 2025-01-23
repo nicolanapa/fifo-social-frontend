@@ -1,0 +1,25 @@
+.post-container {
+    padding: 0 10px;
+}
+
+.user-info {
+    display: flex;
+    padding: 5px;
+    margin: 15px 20px;
+}
+
+.username {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 4px;
+    margin-left: 10px;
+}
+
+.post-content {
+    
+}
+
+.post-tools {
+    display: flex;
+}
