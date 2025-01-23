@@ -1,11 +1,17 @@
 .post-container {
-    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    box-shadow: 0px 0px 10px 3px #ffd5d5;
+    border-radius: 7.5px;
+    padding: 15px 20px 40px 20px;
+    margin: 2.5px 11.5% 30px;
 }
 
 .user-info {
     display: flex;
     padding: 5px;
-    margin: 15px 20px;
+    margin: 10px 20px;
 }
 
 .username {
@@ -13,13 +19,40 @@
     flex-direction: column;
     justify-content: center;
     row-gap: 4px;
+    padding: 2px;
     margin-left: 10px;
 }
 
+.username p,
+.username a:link,
+.username a:visited {
+    color: #0051ad;
+}
+
 .post-content {
-    
+    margin: 10px;
+}
+
+.post-content p {
+    padding: 20px 4.5px 10px;
 }
 
 .post-tools {
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.post-tools > button:nth-child(1),
+.comments-count {
+    display: flex;
+    align-items: flex-end;
+    font-size: large;
+    background-color: #ffd9cc;
+    border-style: none;
+    border-radius: 5px;
+    column-gap: 7.5px;
+    padding: 7.5px 15px;
 }
