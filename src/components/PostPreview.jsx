@@ -64,10 +64,6 @@ function PostPreview(props) {
             <footer>
                 <Like id={id} likes={likes} postOrComment={"post"} />
 
-                <button type="button">
-                    {/* favorite this post feature */}
-                </button>
-
                 <div>
                     <p>{commentsAmount}</p>
                     <img src="/icons/messageIconFeather.svg" alt="Comments" />

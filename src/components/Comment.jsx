@@ -38,14 +38,10 @@ function Comment(props) {
                 creationDate={creation_date}
             />
 
-            <p>{content}</p>
+            <p className="comment-content">{content}</p>
 
-            <footer>
+            <footer className="post-tools">
                 <Like id={commentId} likes={likes} postOrComment={"comment"} />
-
-                <button type="button">
-                    {/* favorite this comment feature, TBD after favorite a post feature */}
-                </button>
 
                 <More xId={commentId} typeOfX={"comment"} />
             </footer>
