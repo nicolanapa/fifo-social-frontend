@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router";
 import Like from "./Like";
 import More from "./More";
+import "../styles/posts.css";
 
 function PostPreview(props) {
     const { id, user_id, title, content, likes, creation_date } = props;

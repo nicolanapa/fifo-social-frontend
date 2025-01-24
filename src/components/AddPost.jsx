@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router";
 import LoginContext from "../context/LoginContext";
 import { getLoginObject } from "../scripts/getLoginObject";
+import "../styles/posts.css";
 
 function AddPost() {
     const { loginInfo, setLoginInfo } = useContext(LoginContext);

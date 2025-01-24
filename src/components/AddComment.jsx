@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import PropTypes from "prop-types";
 import LoginContext from "../context/LoginContext";
 import { getLoginObject } from "../scripts/getLoginObject";
+import "../styles/posts.css";
 
 function AddComment({ postId }) {
     const { loginInfo, setLoginInfo } = useContext(LoginContext);
