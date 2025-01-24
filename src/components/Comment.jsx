@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router";
 import Like from "./Like";
 import More from "./More";
 import "../styles/posts.css";
+import UserInfo from "./UserInfo";
 
 function Comment(props) {
     const { commentId, user_id, content, likes, creation_date } = props;
@@ -32,13 +32,11 @@ function Comment(props) {
 
     return (
         <article>
-            <div>
-                <Link to={"/user/" + user_id}>
-                    <img src="/icons/userIcon.svg" alt="User" />
-                    <address>{user}</address>
-                </Link>
-                <p>{creation_date}</p>
-            </div>
+            <UserInfo
+                userId={user_id}
+                username={user}
+                creationDate={creation_date}
+            />
 
             <p>{content}</p>
 

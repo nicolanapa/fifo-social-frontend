@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import Like from "./Like";
 import More from "./More";
 import "../styles/posts.css";
+import UserInfo from "./UserInfo";
 
 function PostPreview(props) {
     const { id, user_id, title, content, likes, creation_date } = props;
@@ -49,17 +50,11 @@ function PostPreview(props) {
 
     return (
         <article>
-            <div>
-                <Link to={"/user/" + user_id}>
-                    <img src="/icons/userIcon.svg" alt="User" />
-                </Link>
-                <div>
-                    <Link to={"/user/" + user_id}>
-                        <address>{username}</address>
-                    </Link>
-                    <p>{creation_date}</p>
-                </div>
-            </div>
+            <UserInfo
+                userId={user_id}
+                username={username}
+                creationDate={creation_date}
+            />
 
             <h1>
                 <Link to={"/post/" + id}>{title}</Link>

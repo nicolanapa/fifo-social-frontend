@@ -5,6 +5,7 @@ import AddComment from "./AddComment";
 import Like from "./Like";
 import More from "./More";
 import "../styles/posts.css";
+import UserInfo from "./UserInfo";
 
 function Post() {
     const { postId } = useParams();
@@ -70,17 +71,11 @@ function Post() {
 
     return (
         <article className="post-container">
-            <div className="user-info">
-                <Link to={"/user/" + postObject.user_id}>
-                    <img src="/icons/userIcon.svg" alt="User" />
-                </Link>
-                <div className="username">
-                    <Link to={"/user/" + postObject.user_id}>
-                        <address>{postObject.username}</address>
-                    </Link>
-                    <p>{postObject.creation_date}</p>
-                </div>
-            </div>
+            <UserInfo
+                userId={postObject.user_id}
+                username={postObject.username}
+                creationDate={postObject.creation_date}
+            />
 
             <div className="post-content">
                 <h1>{postObject.title}</h1>
