@@ -31,7 +31,7 @@ function Comment(props) {
     }, []);
 
     return (
-        <article>
+        <article className="comment-container">
             <UserInfo
                 userId={user_id}
                 username={user}
