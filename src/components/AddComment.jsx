@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import LoginContext from "../context/LoginContext";
 import { getLoginObject } from "../scripts/getLoginObject";
 import "../styles/posts.css";
+import "../styles/forms.css";
 
 function AddComment({ postId }) {
     const { loginInfo, setLoginInfo } = useContext(LoginContext);
@@ -67,26 +68,32 @@ function AddComment({ postId }) {
                     }
                     method="POST"
                     onSubmit={handleComment}
+                    className="add-comment-form"
                 >
                     <label htmlFor="content">Leave a Comment</label>
 
-                    <div>
-                        <div>
+                    <div className="info-submit-container">
+                        <div className="user-info">
                             <img src="/icons/userIcon.svg" alt="User" />
-                            <address>{loginInfo.username}</address>
+                            <div className="username">
+                                <Link to={"/user/" + loginInfo.id}>
+                                    <address>{loginInfo.username}</address>
+                                </Link>
+                            </div>
                         </div>
 
-                        <textarea
-                            type="text"
-                            id="content"
-                            name="content"
-                            minLength={1}
-                            maxLength={1000}
-                            required
-                        />
+                        <button type="submit" className="styled-button">Submit</button>
                     </div>
 
-                    <button type="submit">Submit</button>
+                    <textarea
+                        type="text"
+                        id="content"
+                        name="content"
+                        minLength={1}
+                        maxLength={1000}
+                        rows={3}
+                        required
+                    />
                 </form>
             ) : (
                 <div>

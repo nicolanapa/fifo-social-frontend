@@ -23,3 +23,44 @@
     padding: 2px 12px;
     margin: 0 10px;
 }
+
+/* button:disabled {} */
+
+/* AddComment */
+
+.add-comment-form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    box-shadow: inset 0px 0px 12px 2px #ffdfd4;
+    border-radius: 10px;
+    column-gap: 20px;
+    padding: 20px;
+    margin: 20px 10px;
+}
+
+.add-comment-form textarea {
+    align-self: center;
+    border-style: none;
+    border: 2px solid #d1d1d1;
+    border-radius: 7.5px;
+    padding: 17.5px 2.5px;
+    margin: 5px;
+    max-width: 600px;
+    max-height: 30em;
+}
+
+.add-comment-form label {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.info-submit-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.info-submit-container .styled-button {
+    margin: 7.5px 2px;
+}
