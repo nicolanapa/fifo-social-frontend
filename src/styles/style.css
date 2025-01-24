@@ -9,3 +9,26 @@
 body {
     background-color: #fcf7f9;
 }
+
+/* UserInfo */
+
+.user-info {
+    display: flex;
+    padding: 5px;
+    margin: 10px 20px;
+}
+
+.username {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 4px;
+    padding: 2px;
+    margin-left: 10px;
+}
+
+.username p,
+.username a:link,
+.username a:visited {
+    color: #0051ad;
+}
