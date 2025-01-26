@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import LoginContext from "../context/LoginContext";
 import { getLoginObject } from "../scripts/getLoginObject";
 import "../styles/posts.css";
+import UserInfo from "./UserInfo";
 
 function AddPost() {
     const { loginInfo, setLoginInfo } = useContext(LoginContext);
@@ -57,11 +58,11 @@ function AddPost() {
     return (
         <>
             {loginInfo.isAuthenticated ? (
-                <article>
-                    <div>
-                        <img src="/icons/userIcon.svg" alt="User" />
-                        <address>{loginInfo.username}</address>
-                    </div>
+                <article className="post-container">
+                    <UserInfo
+                        userId={loginInfo.id}
+                        username={loginInfo.username}
+                    />
 
                     <form
                         action={
@@ -69,26 +70,35 @@ function AddPost() {
                         }
                         method="POST"
                         onSubmit={handlePost}
+                        className="add-post-form"
                     >
-                        <label htmlFor="title">Title</label>
-                        <input
-                            type="text"
-                            id="title"
-                            name="title"
-                            minLength={2}
-                            maxLength={64}
-                            required
-                        />
+                        <div>
+                            <label htmlFor="title">Title</label>
+                            <input
+                                type="text"
+                                id="title"
+                                className="styled-input"
+                                name="title"
+                                minLength={2}
+                                maxLength={64}
+                                required
+                            />
+                        </div>
 
-                        <label htmlFor="content">Content</label>
-                        <textarea
-                            type="text"
-                            id="content"
-                            name="content"
-                            maxLength={2000}
-                        />
+                        <div>
+                            <label htmlFor="content">Content</label>
+                            <textarea
+                                type="text"
+                                id="content"
+                                className="styled-input"
+                                name="content"
+                                maxLength={2000}
+                            />
+                        </div>
 
-                        <button type="submit">Post</button>
+                        <button type="submit" className="styled-button">
+                            Post
+                        </button>
                     </form>
                 </article>
             ) : (
