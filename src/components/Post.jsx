@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
 import Like from "./Like";
