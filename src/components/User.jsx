@@ -3,6 +3,8 @@ import { Link, Outlet, useParams } from "react-router";
 import PostPreview from "./PostPreview";
 import More from "./More";
 import FollowUser from "./FollowUser";
+import "../styles/users.css";
+import UserInfo from "./UserInfo";
 
 function User() {
     const { userId } = useParams();
@@ -50,24 +52,23 @@ function User() {
     }, []);
 
     return (
-        <div>
+        <div className="user-container">
             <Outlet />
 
-            <section>
-                <img src="/icons/userIcon.svg" alt="User" />
-                <div>
-                    <div>
-                        <h1>{userObject.username}</h1>
-                        <small>{userObject.id}</small>
-                        {userObject.admin ? <p>ADMIN</p> : ""}
-                        <p>
-                            Created on the{" "}
-                            {new Date(
-                                userObject.account_creation_date
-                            ).toLocaleString()}
-                        </p>
-                    </div>
-                    <p>
+            <section className="user-info-detailed">
+                <UserInfo
+                    userId={userObject.user_id}
+                    username={userObject.username}
+                    creationDate={userObject.account_creation_date}
+                />
+
+                <div className="other-user-info">
+                    {userObject.admin ? (
+                        <p className="bold">ADMIN</p>
+                    ) : (
+                        <p className="bold">USER</p>
+                    )}{" "}
+                    <p className="description">
                         {userObject.description !== ""
                             ? userObject.description
                             : "No description yet!"}
@@ -78,10 +79,14 @@ function User() {
             <div>
                 <FollowUser userId={userId} />
                 <button>
-                    <Link to={"./followers"}>{userObject.followers} Followers</Link>
+                    <Link to={"./followers"}>
+                        {userObject.followers} Followers
+                    </Link>
                 </button>
                 <button>
-                    <Link to={"./followed"}>{userObject.followed} Followed</Link>
+                    <Link to={"./followed"}>
+                        {userObject.followed} Followed
+                    </Link>
                 </button>
                 <More xId={userId} typeOfX={"user"} />
             </div>

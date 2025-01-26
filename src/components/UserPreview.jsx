@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router";
 import FollowUser from "./FollowUser";
+import "../styles/users.css";
 
 function UserPreview(props) {
     const [postObject, setPostObject] = useState("");
