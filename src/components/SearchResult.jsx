@@ -24,44 +24,56 @@ function SearchResult() {
     return (
         <>
             {typeOfSearch === "empty" ? (
-                <p>No results found!</p>
+                <p className="empty-search">No results found!</p>
             ) : typeOfSearch === "global" ? (
                 <>
                     <p>Global</p>
                     <h2>Users Found</h2>
-                    {array[0].map((user) => {
-                        const randomKey = crypto.randomUUID();
+                    {array[0].length === 0 ? (
+                        <p className="empty-search">
+                            No User has been found...
+                        </p>
+                    ) : (
+                        array[0].map((user) => {
+                            const randomKey = crypto.randomUUID();
 
-                        return (
-                            <UserPreview
-                                id={user.id}
-                                username={user.username}
-                                description={user.description}
-                                admin={user.admin}
-                                creation_date={user.account_creation_date}
-                                followers={user.followers}
-                                followed={user.followed}
-                                key={randomKey}
-                            />
-                        );
-                    })}
+                            return (
+                                <UserPreview
+                                    id={user.id}
+                                    username={user.username}
+                                    description={user.description}
+                                    admin={user.admin}
+                                    creation_date={user.account_creation_date}
+                                    followers={user.followers}
+                                    followed={user.followed}
+                                    key={randomKey}
+                                />
+                            );
+                        })
+                    )}
 
                     <h2>Posts Found</h2>
-                    {array[1].map((post) => {
-                        const randomKey = crypto.randomUUID();
+                    {array[1].length === 0 ? (
+                        <p className="empty-search">
+                            No Post has been found...
+                        </p>
+                    ) : (
+                        array[1].map((post) => {
+                            const randomKey = crypto.randomUUID();
 
-                        return (
-                            <PostPreview
-                                id={post.id}
-                                user_id={post.user_id}
-                                title={post.title}
-                                content={post.content}
-                                likes={post.likes}
-                                creation_date={post.creation_date}
-                                key={randomKey}
-                            />
-                        );
-                    })}
+                            return (
+                                <PostPreview
+                                    id={post.id}
+                                    user_id={post.user_id}
+                                    title={post.title}
+                                    content={post.content}
+                                    likes={post.likes}
+                                    creation_date={post.creation_date}
+                                    key={randomKey}
+                                />
+                            );
+                        })
+                    )}
                 </>
             ) : typeOfSearch === "users" ? (
                 <>
