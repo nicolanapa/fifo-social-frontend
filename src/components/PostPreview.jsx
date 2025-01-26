@@ -49,22 +49,24 @@ function PostPreview(props) {
     }, []);
 
     return (
-        <article>
+        <article className="post-container">
             <UserInfo
                 userId={user_id}
                 username={username}
                 creationDate={creation_date}
             />
 
-            <h1>
-                <Link to={"/post/" + id}>{title}</Link>
-            </h1>
-            <p>{content}</p>
+            <div className="post-content">
+                <h1>
+                    <Link to={"/post/" + id}>{title}</Link>
+                </h1>
+                <p>{content}</p>
+            </div>
 
-            <footer>
+            <footer className="post-tools">
                 <Like id={id} likes={likes} postOrComment={"post"} />
 
-                <div>
+                <div className="comments-count">
                     <p>{commentsAmount}</p>
                     <img src="/icons/messageIconFeather.svg" alt="Comments" />
                 </div>
