@@ -59,13 +59,13 @@ function UserPreview(props) {
                 </div>
             </section>
 
-            <section>
-                <button>
+            <section className="user-tools">
+                <button className="followers-button">
                     <Link to={"/user/" + props.id + "/followers"}>
                         {props.followers} Followers
                     </Link>
                 </button>
-                <button>
+                <button className="followers-button">
                     <Link to={"/user/" + props.id + "/followed"}>
                         {props.followed} Followed
                     </Link>
