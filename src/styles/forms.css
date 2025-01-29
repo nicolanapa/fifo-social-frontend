@@ -26,19 +26,24 @@
 
 .styled-button {
     display: flex;
-    align-items: flex-end;
-    font-size: large;
+    align-items: center;
+    font-size: medium;
     background-color: #ffd9cc;
     border-style: none;
     border: 1px solid #e6e3e5;
     box-shadow: 0px 0px 6px 2px #ffd9cc;
     border-radius: 5px;
     column-gap: 7.5px;
-    padding: 7.5px 18px;
+    padding: 7.5px 15px;
+    margin: 1px 10px;
 }
 
-.styled-input {
+.styled-button p {
+    padding-top: 3px;
 }
+
+/*.styled-input {
+}*/
 
 /* button:disabled {} */
 
