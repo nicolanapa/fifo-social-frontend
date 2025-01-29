@@ -91,7 +91,7 @@ function Post() {
                     />
                 )}
 
-                <div className="comments-count">
+                <div className="styled-button">
                     <p>{commentsObject.length}</p>
                     <img src="/icons/messageIconFeather.svg" alt="Comments" />
                 </div>

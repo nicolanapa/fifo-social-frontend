@@ -103,6 +103,7 @@ function FollowUser({ userId }) {
                 <button
                     onClick={followThing}
                     disabled={!loginInfo.isAuthenticated}
+                    className="styled-button"
                 >
                     <img
                         src={

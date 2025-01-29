@@ -66,7 +66,7 @@ function PostPreview(props) {
             <footer className="post-tools">
                 <Like id={id} likes={likes} postOrComment={"post"} />
 
-                <div className="comments-count">
+                <div className="styled-button">
                     <p>{commentsAmount}</p>
                     <img src="/icons/messageIconFeather.svg" alt="Comments" />
                 </div>

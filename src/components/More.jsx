@@ -23,6 +23,7 @@ function More({ xId, typeOfX }) {
                 onClick={() => {
                     setIsOpen(!isOpen);
                 }}
+                className="styled-button"
             >
                 <img src="/icons/moreIconFeather.svg" alt="More options" />
             </button>
