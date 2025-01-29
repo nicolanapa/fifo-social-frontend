@@ -53,3 +53,15 @@
     text-decoration: none;
     color: #0051ad;
 }
+
+.user-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: space-around;
+    align-self: center;
+    border: 2px solid #d1d1d1;
+    box-shadow: 0px 0px 10px 3px #d1d1d1;
+    border-radius: 10px;
+    padding: 5px 15px 17.5px;
+    margin: 15px 5% 35px;
+}

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router";
 import FollowUser from "./FollowUser";
 import "../styles/users.css";
+import UserInfo from "./UserInfo";
 
 function UserPreview(props) {
     const [postObject, setPostObject] = useState("");
@@ -32,26 +33,21 @@ function UserPreview(props) {
     }, []);
 
     return (
-        <div>
+        <div className="user-preview">
             <section>
-                <Link to={"/user/" + props.id}>
-                    <img src="/icons/userIcon.svg" alt="User" />
-                </Link>
-                <div>
-                    <div>
-                        <h1>
-                            <Link to={"/user/" + props.id}>
-                                {props.username}
-                            </Link>
-                        </h1>
-                        <small>{props.id}</small>
-                        {props.admin ? <p>ADMIN</p> : ""}
-                        <p>
-                            Created on the{" "}
-                            {new Date(props.creation_date).toLocaleString()}
-                        </p>
-                    </div>
-                    <p>
+                <UserInfo
+                    userId={props.id}
+                    username={props.username}
+                    creationDate={props.creation_date}
+                />
+
+                <div className="other-user-info">
+                    {props.admin ? (
+                        <p className="bold">ADMIN</p>
+                    ) : (
+                        <p className="bold">USER</p>
+                    )}{" "}
+                    <p className="description">
                         {props.description !== ""
                             ? props.description
                             : "No description yet!"}
@@ -70,7 +66,9 @@ function UserPreview(props) {
                         {props.followed} Followed
                     </Link>
                 </button>
-                <p>{postObject.length} posts</p>
+                <div className="styled-button">
+                    <p>{postObject.length} posts</p>
+                </div>
                 <FollowUser userId={props.id} />
             </section>
         </div>
