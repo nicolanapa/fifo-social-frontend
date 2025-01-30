@@ -84,6 +84,8 @@ function AllFollowersOrFollowed() {
                             description={user.description}
                             admin={user.admin}
                             creation_date={user.account_creation_date}
+                            followers={user.followers}
+                            followed={user.followed}
                             key={randomKey[i]}
                         />
                     );
