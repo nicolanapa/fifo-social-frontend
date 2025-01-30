@@ -106,6 +106,10 @@ function FavoriteX({ xId, typeOfX }) {
             <button
                 onClick={favoriteThing}
                 disabled={!loginInfo.isAuthenticated}
+                className={
+                    "styled-button" +
+                    (!loginInfo.isAuthenticated ? " disabled" : "")
+                }
             >
                 <img
                     src={

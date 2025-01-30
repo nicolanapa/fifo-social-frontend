@@ -45,7 +45,9 @@
 /*.styled-input {
 }*/
 
-/* button:disabled {} */
+.disabled {
+    background-color: #d2b2a7;
+}
 
 /* AddComment */
 

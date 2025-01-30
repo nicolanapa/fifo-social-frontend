@@ -65,7 +65,11 @@ function DeleteX({ xId, typeOfX }) {
 
     return (
         <>
-            <button onClick={deleteThing} disabled={!isOwner}>
+            <button
+                onClick={deleteThing}
+                disabled={!isOwner}
+                className={"styled-button" + (!isOwner ? " disabled" : "")}
+            >
                 <img
                     src="/icons/deleteIconFeather.svg"
                     alt={"Delete this " + typeOfX}

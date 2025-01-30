@@ -83,7 +83,11 @@ function EditX({ xId, typeOfX }) {
 
     return (
         <>
-            <button onClick={showModal} disabled={!isOwner}>
+            <button
+                onClick={showModal}
+                disabled={!isOwner}
+                className={"styled-button" + (!isOwner ? " disabled" : "")}
+            >
                 <img
                     src="/icons/editIconFeather.svg"
                     alt={"Edit this " + typeOfX}
