@@ -56,16 +56,16 @@ function UserPreview(props) {
             </section>
 
             <section className="user-tools">
-                <button className="followers-button">
-                    <Link to={"/user/" + props.id + "/followers"}>
+                <Link to={"/user/" + props.id + "/followers"}>
+                    <button className="followers-button">
                         {props.followers} Followers
-                    </Link>
-                </button>
-                <button className="followers-button">
-                    <Link to={"/user/" + props.id + "/followed"}>
+                    </button>
+                </Link>
+                <Link to={"/user/" + props.id + "/followed"}>
+                    <button className="followers-button">
                         {props.followed} Followed
-                    </Link>
-                </button>
+                    </button>
+                </Link>
                 <div className="styled-button">
                     <p>{postObject.length} posts</p>
                 </div>
