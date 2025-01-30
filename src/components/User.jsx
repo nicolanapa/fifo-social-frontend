@@ -49,7 +49,7 @@ function User() {
         }
 
         fetchUserAndPosts();
-    }, []);
+    }, [userId]);
 
     return (
         <div className="user-container">
