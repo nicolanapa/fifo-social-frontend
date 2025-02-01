@@ -11,3 +11,26 @@
     padding: 7.5px;
     margin: 2px;
 }
+
+.absolute-search-modal {
+    display: flex;
+    visibility: visible;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+    background-color: #ffbaba8f;
+    border-radius: 10px;
+    top: 70px;
+    left: -90px;
+    row-gap: 15px;
+    padding: 15px 20px;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+#type-of-search {
+    padding: 5px 7.5px;
+}
