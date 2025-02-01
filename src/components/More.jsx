@@ -8,9 +8,9 @@ function More({ xId, typeOfX }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <section>
+        <section className="relative-modal">
             {isOpen && (
-                <div>
+                <div className="absolute-modal">
                     {typeOfX !== "user" && (
                         <FavoriteX xId={xId} typeOfX={typeOfX} />
                     )}

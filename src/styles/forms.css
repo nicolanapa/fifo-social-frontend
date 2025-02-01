@@ -103,3 +103,21 @@
 .add-post-form .styled-button {
     padding: 15px 30px;
 }
+
+/* More */
+
+.relative-modal {
+    position: relative;
+}
+
+.absolute-modal {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #e8b5b535;
+    border-radius: 20px;
+    top: 50px;
+    left: -10px;
+    row-gap: 5px;
+    padding: 20px 10px;
+}
