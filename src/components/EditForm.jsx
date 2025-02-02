@@ -64,14 +64,16 @@ function EditForm({ onClose, onSubmit, typeOfX, xId }) {
                 }
                 method="POST"
                 onSubmit={onSubmit}
+                className="modal-form"
             >
-                <div>
+                <div className="dynamic-form">
                     {typeOfX === "user" ? (
                         <>
                             <label htmlFor="description">Description: </label>
-                            <input
+                            <textarea
                                 type="text"
                                 id="description"
+                                className="styled-input"
                                 name="description"
                                 value={inputForm.description}
                                 onChange={updateInput}
@@ -84,6 +86,7 @@ function EditForm({ onClose, onSubmit, typeOfX, xId }) {
                             <input
                                 type="text"
                                 id="title"
+                                className="styled-input"
                                 name="title"
                                 value={inputForm.title}
                                 onChange={updateInput}
@@ -93,9 +96,10 @@ function EditForm({ onClose, onSubmit, typeOfX, xId }) {
                             />
 
                             <label htmlFor="content">Content: </label>
-                            <input
+                            <textarea
                                 type="text"
                                 id="content"
+                                className="styled-input"
                                 name="content"
                                 value={inputForm.content}
                                 onChange={updateInput}
@@ -105,9 +109,10 @@ function EditForm({ onClose, onSubmit, typeOfX, xId }) {
                     ) : (
                         <>
                             <label htmlFor="content">Content: </label>
-                            <input
+                            <textarea
                                 type="text"
                                 id="content"
+                                className="styled-input"
                                 name="content"
                                 value={inputForm.content}
                                 onChange={updateInput}
@@ -118,9 +123,19 @@ function EditForm({ onClose, onSubmit, typeOfX, xId }) {
                         </>
                     )}
                 </div>
-                <button type="submit">Update</button>
+                <div className="button-container">
+                    <button type="submit" className="styled-button">
+                        Update
+                    </button>
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        className="styled-button"
+                    >
+                        Cancel
+                    </button>
+                </div>
             </form>
-            <button onClick={onClose}>Cancel</button>
         </div>
     );
 }

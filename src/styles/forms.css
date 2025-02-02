@@ -121,3 +121,41 @@
     row-gap: 5px;
     padding: 20px 10px;
 }
+
+/* EditForm */
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    align-self: center;
+    justify-content: center;
+    background-color: #ececec9e;
+    backdrop-filter: blur(14px);
+    border-radius: 15px;
+    width: 80%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    padding: 40px 10px;
+    margin: 7.5%;
+    row-gap: 40px;
+}
+
+.dynamic-form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    row-gap: 20px;
+}
+
+.button-container {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.button-container button {
+    padding: 20px 30px;
+}
