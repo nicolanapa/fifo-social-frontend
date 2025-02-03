@@ -24,11 +24,11 @@ function SearchResult() {
     return (
         <>
             {typeOfSearch === "empty" ? (
-                <p className="empty-search">No results found!</p>
+                <p className="empty-search title-section">No results found!</p>
             ) : typeOfSearch === "global" ? (
                 <>
-                    <p>Global</p>
-                    <h2>Users Found</h2>
+                    <p className="title-section">Global</p>
+                    <h2 className="title-section">Users Found</h2>
                     {array[0].length === 0 ? (
                         <p className="empty-search">
                             No User has been found...
@@ -52,7 +52,7 @@ function SearchResult() {
                         })
                     )}
 
-                    <h2>Posts Found</h2>
+                    <h2 className="title-section">Posts Found</h2>
                     {array[1].length === 0 ? (
                         <p className="empty-search">
                             No Post has been found...

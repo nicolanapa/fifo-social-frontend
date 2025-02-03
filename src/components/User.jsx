@@ -112,7 +112,7 @@ function User() {
                         );
                     })
                 ) : (
-                    <h2>No posts yet...</h2>
+                    <h2 className="title-section">No posts yet...</h2>
                 )}
             </section>
         </div>

@@ -164,9 +164,9 @@ function Home() {
     return (
         <>
             <div>
-                <h1>Home</h1>
+                <h1 className="title-section">Home</h1>
                 {loginInfo.isAuthenticated && (
-                    <div>
+                    <div className="home-greet">
                         <h2>Hi, {loginInfo.username}</h2>
                         <p>
                             Here&apos;s the latest posts from the people you
@@ -178,7 +178,9 @@ function Home() {
 
             {loginInfo.isAuthenticated && (
                 <section>
-                    <h2>Recommended People</h2>
+                    {users && (
+                        <h2 className="title-section">Recommended People</h2>
+                    )}
 
                     {users &&
                         users.map((user, i) => (

@@ -38,3 +38,16 @@ body {
 .bold {
     font-weight: 700;
 }
+
+.title-section {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Home */
+
+.home-greet {
+    padding: 15px 20px;
+    margin: 10px 30px;
+}
