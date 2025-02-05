@@ -1,9 +1,9 @@
 function Copyright() {
     return (
         <>
-            <h1>Copyright</h1>
+            <h1 className="title-section">Copyright</h1>
 
-            <div>
+            <div className="home-greet">
                 <p>
                     <a href="https://fonts.google.com/specimen/Josefin+Sans">
                         Josefin Sans
