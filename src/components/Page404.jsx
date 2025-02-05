@@ -1,8 +1,10 @@
 function Page404() {
     return (
-        <div>
-            <h1>404</h1>
-            <h2>Page Not Found</h2>
+        <div className="page-error">
+            <div>
+                <h1>404</h1>
+                <p className="bold">Page Not Found</p>
+            </div>
         </div>
     );
 }

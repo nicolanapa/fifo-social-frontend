@@ -8,11 +8,15 @@ function ErrorPage() {
     }
 
     return (
-        <div>
-            <h1>{state.code !== "" ? state.code : 500}</h1>
-            <h2>
-                {state.msg !== "" ? state.msg : "An Unknown Error has happened"}
-            </h2>
+        <div className="page-error">
+            <div>
+                <h1>{state.code !== "" ? state.code : 500}</h1>
+                <p className="bold">
+                    {state.msg !== ""
+                        ? state.msg
+                        : "An Unknown Error has happened"}
+                </p>
+            </div>
         </div>
     );
 }
