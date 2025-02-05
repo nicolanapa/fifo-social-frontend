@@ -49,3 +49,26 @@ body {
     padding: 15px 20px;
     margin: 10px 30px;
 }
+
+/* Page404 and ErrorPage */
+
+.page-error {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.page-error div {
+    display: flex;
+    background-color: #130d0d;
+    border-radius: 20px;
+    column-gap: 20px;
+    padding: 40px 35px;
+    margin-top: 10%;
+    color: #fcf7f9;
+}
+
+.page-error div p {
+    display: flex;
+    align-items: center;
+}
