@@ -22,8 +22,6 @@ function AllUsersOrPosts() {
 
             const responseObject = await response.json();
 
-            console.log(responseObject);
-            console.log(responseObject);
             setAllX(responseObject);
         }
 

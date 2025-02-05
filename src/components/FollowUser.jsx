@@ -58,8 +58,6 @@ function FollowUser({ userId }) {
             }
         );
 
-        console.log(response);
-
         if (alreadyFollowing) {
             if (response.status === 204) {
                 return setAlreadyFollowing(false);

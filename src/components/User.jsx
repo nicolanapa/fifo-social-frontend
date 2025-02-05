@@ -42,8 +42,9 @@ function User() {
 
             const responsePostObject = await responsePost.json();
 
-            console.log(responseUserObject[0]);
-            console.log(responsePostObject);
+            /* console.log(responseUserObject[0]);
+            console.log(responsePostObject); */
+
             setUserObject(responseUserObject[0]);
             setPostObject(responsePostObject);
         }

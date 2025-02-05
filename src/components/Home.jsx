@@ -126,8 +126,6 @@ function Home() {
             }
         }
 
-        console.log(postsTemp);
-
         return { postsTemp, postsKeyTemp };
     }
 

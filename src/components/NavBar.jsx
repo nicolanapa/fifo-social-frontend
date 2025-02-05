@@ -9,7 +9,7 @@ function NavBar() {
     const { loginInfo } = useContext(LoginContext);
 
     useEffect(() => {
-        console.log("Checking status:", loginInfo);
+        // console.log("Checking status:", loginInfo);
 
         if (loginInfo.isAuthenticated) {
             setLoginOrUserPath("/user/" + loginInfo.id);

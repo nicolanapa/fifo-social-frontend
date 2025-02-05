@@ -24,8 +24,6 @@ function Login() {
 
         const responseStatus = await response.json();
 
-        console.log(responseStatus);
-
         if (responseStatus.isAuthenticated) {
             setLoginInfo(responseStatus);
             navigate("../", 200);
@@ -48,8 +46,6 @@ function Login() {
         });
 
         const responseStatus = await response.json();
-
-        console.log(responseStatus);
 
         setNewUser({
             username: e.target.username.value,

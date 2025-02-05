@@ -42,8 +42,8 @@ function Post() {
             const responsePostObject = await responsePost.json();
             const responseCommentsObject = await responseComments.json();
 
-            console.log(responsePostObject[0]);
-            console.log(responseCommentsObject);
+            /* console.log(responsePostObject[0]);
+            console.log(responseCommentsObject); */
             setCommentsObject(responseCommentsObject);
 
             const responseUser = await fetch(

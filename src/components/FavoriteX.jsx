@@ -31,8 +31,6 @@ function FavoriteX({ xId, typeOfX }) {
 
             const responseStatus = await response.json();
 
-            console.log(responseStatus);
-
             if (responseStatus.success) {
                 if (
                     responseStatus.msg ===
@@ -84,8 +82,6 @@ function FavoriteX({ xId, typeOfX }) {
             );
 
             const responseStatus = await response.json();
-
-            console.log(responseStatus);
 
             return responseStatus.some(
                 (favorite) => favorite.id === Number(xId)

@@ -82,8 +82,6 @@ function Favorites() {
 
                         {posts.length !== 0 ? (
                             posts.map((post, i) => {
-                                console.log("index", i, randomKeyPosts[i]);
-
                                 return (
                                     <PostPreview
                                         id={post.id}
@@ -105,7 +103,6 @@ function Favorites() {
 
                         {comments.length !== 0 ? (
                             comments.map((comment, i) => {
-                                console.log("index", i, randomKeyComments[i]);
                                 return (
                                     <Comment
                                         commentId={comment.id}

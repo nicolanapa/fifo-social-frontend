@@ -26,8 +26,6 @@ function SearchForm() {
 
         const responseObject = await response.json();
 
-        console.log(responseObject);
-
         navigate("/search", {
             state: { array: responseObject, typeOfSearch: selectedOption },
         });

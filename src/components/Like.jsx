@@ -28,8 +28,6 @@ function Like({ id, likes, postOrComment }) {
 
         const responseStatus = await response.json();
 
-        console.log(responseStatus);
-
         if (responseStatus.success) {
             if (responseStatus.msg === "Like has been added") {
                 updateLikeCount(1);

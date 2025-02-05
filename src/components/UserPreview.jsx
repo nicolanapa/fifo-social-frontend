@@ -25,7 +25,6 @@ function UserPreview(props) {
 
             const responsePostObject = await responsePost.json();
 
-            console.log(responsePostObject);
             setPostObject(responsePostObject);
         }
 

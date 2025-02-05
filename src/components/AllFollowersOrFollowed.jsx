@@ -65,8 +65,6 @@ function AllFollowersOrFollowed() {
 
             const responseObject = await response.json();
 
-            console.log(responseObject, location.pathname);
-
             await fetchAllUsers(responseObject);
         }
 

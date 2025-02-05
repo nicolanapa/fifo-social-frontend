@@ -40,8 +40,6 @@ function DeleteX({ xId, typeOfX }) {
 
             const responseStatus = await deleteResponse.json();
 
-            console.log(responseStatus);
-
             if (responseStatus.success) {
                 typeOfX === "user" || typeOfX === "post"
                     ? navigate("/")

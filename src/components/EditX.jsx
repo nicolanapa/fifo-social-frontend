@@ -60,8 +60,6 @@ function EditX({ xId, typeOfX }) {
 
             const responseStatus = await response.json();
 
-            console.log(responseStatus);
-
             if (responseStatus.success) {
                 location.reload();
             } else {

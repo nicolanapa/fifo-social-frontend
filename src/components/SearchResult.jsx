@@ -19,8 +19,6 @@ function SearchResult() {
         typeOfSearch = "empty";
     }
 
-    console.log(array.length);
-
     return (
         <>
             {typeOfSearch === "empty" ? (
