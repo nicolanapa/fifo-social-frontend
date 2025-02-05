@@ -78,7 +78,7 @@ function Favorites() {
             {loginInfo.isAuthenticated ? (
                 <>
                     <section>
-                        <h2>Posts</h2>
+                        <h2 className="title-section">Posts</h2>
 
                         {posts.length !== 0 ? (
                             posts.map((post, i) => {
@@ -101,7 +101,7 @@ function Favorites() {
                         )}
                     </section>
                     <section>
-                        <h2>Comments</h2>
+                        <h2 className="title-section">Comments</h2>
 
                         {comments.length !== 0 ? (
                             comments.map((comment, i) => {
