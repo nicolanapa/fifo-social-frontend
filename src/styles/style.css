@@ -10,6 +10,16 @@ body {
     background-color: #fcf7f9;
 }
 
+.bold {
+    font-weight: 700;
+}
+
+.title-section {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
 /* UserInfo */
 
 .user-info {
@@ -31,18 +41,6 @@ body {
 .username a:link,
 .username a:visited {
     color: #0051ad;
-}
-
-/* */
-
-.bold {
-    font-weight: 700;
-}
-
-.title-section {
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
 }
 
 /* Home */
