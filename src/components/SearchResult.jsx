@@ -28,7 +28,7 @@ function SearchResult() {
                     <p className="title-section">Global</p>
                     <h2 className="title-section">Users Found</h2>
                     {array[0].length === 0 ? (
-                        <p className="empty-search">
+                        <p className="empty-search title-section">
                             No User has been found...
                         </p>
                     ) : (
@@ -52,7 +52,7 @@ function SearchResult() {
 
                     <h2 className="title-section">Posts Found</h2>
                     {array[1].length === 0 ? (
-                        <p className="empty-search">
+                        <p className="empty-search title-section">
                             No Post has been found...
                         </p>
                     ) : (
@@ -113,7 +113,7 @@ function SearchResult() {
                     })}
                 </>
             ) : (
-                <p>Search something first!</p>
+                <p className="title-section">Search something first!</p>
             )}
         </>
     );

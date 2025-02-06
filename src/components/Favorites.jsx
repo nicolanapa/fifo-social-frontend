@@ -95,7 +95,9 @@ function Favorites() {
                                 );
                             })
                         ) : (
-                            <h2>No Favorited posts yet...</h2>
+                            <h2 className="title-section">
+                                No Favorited posts yet...
+                            </h2>
                         )}
                     </section>
                     <section>
@@ -115,7 +117,9 @@ function Favorites() {
                                 );
                             })
                         ) : (
-                            <h2>No Favorited comments yet...</h2>
+                            <h2 className="title-section">
+                                No Favorited comments yet...
+                            </h2>
                         )}
                     </section>
                 </>
