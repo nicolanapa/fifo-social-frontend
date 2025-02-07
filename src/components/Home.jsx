@@ -176,8 +176,10 @@ function Home() {
 
             {loginInfo.isAuthenticated && (
                 <section>
-                    {users && (
+                    {users.length >= 1 ? (
                         <h2 className="title-section">Recommended People</h2>
+                    ) : (
+                        ""
                     )}
 
                     {users &&
