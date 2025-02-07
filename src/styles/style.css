@@ -10,6 +10,16 @@ body {
     background-color: #fcf7f9;
 }
 
+:where(h1) {
+    margin-block: 0.67em;
+    font-size: 2em;
+}
+
+a:link,
+a:visited {
+    color: #0051ad;
+}
+
 .bold {
     font-weight: 700;
 }
