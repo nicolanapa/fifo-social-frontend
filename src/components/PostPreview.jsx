@@ -57,9 +57,9 @@ function PostPreview(props) {
             />
 
             <div className="post-content">
-                <h1>
+                <h3>
                     <Link to={"/post/" + id}>{title}</Link>
-                </h1>
+                </h3>
                 <p>{content}</p>
             </div>
 

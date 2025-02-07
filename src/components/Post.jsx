@@ -118,7 +118,7 @@ function Post() {
                         );
                     })
                 ) : (
-                    <h2>No comments yet...</h2>
+                    <h2 className="title-section">No comments yet...</h2>
                 )}
             </section>
         </article>

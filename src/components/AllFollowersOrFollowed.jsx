@@ -89,7 +89,7 @@ function AllFollowersOrFollowed() {
                     );
                 })
             ) : (
-                <p>
+                <p className="title-section">
                     {location.pathname.includes("followers")
                         ? "No one is currently following User"
                         : "User is currently following no one"}
