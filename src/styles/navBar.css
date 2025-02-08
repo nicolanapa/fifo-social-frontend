@@ -1,9 +1,7 @@
 .navbar-container {
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1.2fr;
     justify-items: center;
     align-items: center;
-    padding: 15px 5px;
     margin-bottom: 15px;
 }
 
@@ -36,10 +34,24 @@
 }
 
 @media only screen and (max-width: 500px) {
+    /* Another More button in More.jsx to free space */
+    .navbar-container {
+        grid-template-columns: 0.5fr 0.75fr 1.2fr;
+        column-gap: 2px;
+        padding: 15px 2px;
+    }
 }
 
 @media only screen and (min-width: 500px) and (max-width: 800px) {
+    .navbar-container {
+        grid-template-columns: 0.75fr 1fr 1.2fr;
+        padding: 15px 5px;
+    }
 }
 
 @media only screen and (min-width: 800px) {
+    .navbar-container {
+        grid-template-columns: 1fr 1.5fr 1.2fr;
+        padding: 15px 5px;
+    }
 }

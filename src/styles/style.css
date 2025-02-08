@@ -86,11 +86,8 @@ a:visited {
 .page-error div {
     display: flex;
     background-color: #130d0d;
-    border-radius: 20px;
-    column-gap: 20px;
-    padding: 40px 35px;
-    margin-top: 10%;
     color: #fcf7f9;
+    border-radius: 20px;
 }
 
 .page-error div p {
@@ -101,10 +98,25 @@ a:visited {
 /* Media Queries General Stuff */
 
 @media only screen and (max-width: 500px) {
+    .page-error div {
+        column-gap: 10px;
+        padding: 40px 25px;
+        margin: 7.5% 10px;
+    }
 }
 
 @media only screen and (min-width: 500px) and (max-width: 800px) {
+    .page-error div {
+        column-gap: 25px;
+        padding: 40px 35px;
+        margin: 10% 20px;
+    }
 }
 
 @media only screen and (min-width: 800px) {
+    .page-error div {
+        column-gap: 40px;
+        padding: 40px 35px;
+        margin-top: 10%;
+    }
 }
