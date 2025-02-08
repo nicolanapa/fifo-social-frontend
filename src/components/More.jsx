@@ -25,7 +25,11 @@ function More({ xId, typeOfX }) {
                 }}
                 className="styled-button"
             >
-                <img src="/icons/moreIconFeather.svg" alt="More options" />
+                <img
+                    className="small-image"
+                    src="/icons/moreIconFeather.svg"
+                    alt="More options"
+                />
             </button>
         </section>
     );

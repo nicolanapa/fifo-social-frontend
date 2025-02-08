@@ -87,6 +87,7 @@ function EditX({ xId, typeOfX }) {
                 className={"styled-button" + (!isOwner ? " disabled" : "")}
             >
                 <img
+                    className="small-image"
                     src="/icons/editIconFeather.svg"
                     alt={"Edit this " + typeOfX}
                 />

@@ -30,6 +30,21 @@ a:visited {
     margin: 10px;
 }
 
+.bigger-image {
+    width: 35px;
+    height: 35px;
+}
+
+.normal-image {
+    width: 28px;
+    height: 28px;
+}
+
+.small-image {
+    width: 24px;
+    height: 24px;
+}
+
 /* UserInfo */
 
 .user-info {
@@ -82,3 +97,14 @@ a:visited {
     display: flex;
     align-items: center;
 }
+
+/* Media Queries General Stuff */
+
+/*@media only screen and (max-width: 500px) {
+}
+
+@media only screen and (min-width: 500px) and (max-width: 800px) {
+}
+
+@media only screen and (min-width: 800px) {
+}*/

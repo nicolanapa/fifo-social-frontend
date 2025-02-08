@@ -68,7 +68,7 @@ function PostPreview(props) {
 
                 <div className="styled-button">
                     <p>{commentsAmount}</p>
-                    <img src="/icons/messageIconFeather.svg" alt="Comments" />
+                    <img className="small-image" src="/icons/messageIconFeather.svg" alt="Comments" />
                 </div>
 
                 <More xId={id} typeOfX={"post"} />

@@ -104,6 +104,7 @@ function FollowUser({ userId }) {
                     className="styled-button"
                 >
                     <img
+                        className="normal-image"
                         src={
                             "/icons/" +
                             (alreadyFollowing ? "remove" : "add") +

@@ -7,7 +7,11 @@ function UserInfo({ userId, username, creationDate }) {
     return (
         <div className="user-info">
             <Link to={"/user/" + userId}>
-                <img src="/icons/userIcon.svg" alt="User" />
+                <img
+                    className="bigger-image"
+                    src="/icons/userIcon.svg"
+                    alt="User"
+                />
             </Link>
             <div className="username">
                 <Link to={"/user/" + userId}>

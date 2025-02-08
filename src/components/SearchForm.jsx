@@ -52,7 +52,11 @@ function SearchForm() {
                 }}
                 className="styled-button"
             >
-                <img src="/icons/searchTypeIcon.svg" alt="Search options" />
+                <img
+                    className="bigger-image"
+                    src="/icons/searchTypeIcon.svg"
+                    alt="Search options"
+                />
             </button>
 
             <div className={"relative-modal" + (hiddenSelect ? " hidden" : "")}>
@@ -81,7 +85,11 @@ function SearchForm() {
                 "Post"
             )*/}
             <button type="submit" className="styled-button">
-                <img src="/icons/searchIcon.svg" alt="Search" />
+                <img
+                    className="bigger-image"
+                    src="/icons/searchIcon.svg"
+                    alt="Search"
+                />
             </button>
         </form>
     );

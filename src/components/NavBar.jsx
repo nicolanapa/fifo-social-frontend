@@ -21,22 +21,32 @@ function NavBar() {
             <nav className="navbar-container">
                 <div>
                     <NavLink to="/">
-                        <img src="/icons/homeIcon.svg" alt="Home" />
+                        <img
+                            className="bigger-image"
+                            src="/icons/homeIcon.svg"
+                            alt="Home"
+                        />
                     </NavLink>
                 </div>
                 <SearchForm />
                 <div>
                     <NavLink to="/addPost">
-                        <img src="/icons/addPostIcon.svg" alt="Add a Post" />
+                        <img
+                            className="bigger-image"
+                            src="/icons/addPostIcon.svg"
+                            alt="Add a Post"
+                        />
                     </NavLink>
                     <NavLink to="/favorites">
                         <img
+                            className="bigger-image"
                             src="/icons/favorites.svg"
                             alt="Favorited Elements"
                         />
                     </NavLink>
                     <NavLink to={loginOrUserPath}>
                         <img
+                            className="bigger-image"
                             src="/icons/userIcon.svg"
                             alt={
                                 loginOrUserPath === "/login"

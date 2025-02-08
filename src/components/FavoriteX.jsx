@@ -108,6 +108,7 @@ function FavoriteX({ xId, typeOfX }) {
                 }
             >
                 <img
+                    className="small-image"
                     src={
                         "/icons/" +
                         (alreadyFavorited ? "remove" : "add") +

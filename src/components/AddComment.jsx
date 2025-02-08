@@ -74,7 +74,11 @@ function AddComment({ postId }) {
 
                     <div className="info-submit-container">
                         <div className="user-info">
-                            <img src="/icons/userIcon.svg" alt="User" />
+                            <img
+                                className="small-image"
+                                src="/icons/userIcon.svg"
+                                alt="User"
+                            />
                             <div className="username">
                                 <Link to={"/user/" + loginInfo.id}>
                                     <address>{loginInfo.username}</address>
@@ -82,7 +86,9 @@ function AddComment({ postId }) {
                             </div>
                         </div>
 
-                        <button type="submit" className="styled-button">Submit</button>
+                        <button type="submit" className="styled-button">
+                            Submit
+                        </button>
                     </div>
 
                     <textarea
