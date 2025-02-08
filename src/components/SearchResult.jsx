@@ -75,7 +75,7 @@ function SearchResult() {
                 </>
             ) : typeOfSearch === "users" ? (
                 <>
-                    <h2>Users Found</h2>
+                    <h2 className="title-section">Users Found</h2>
                     {array.map((user) => {
                         const randomKey = crypto.randomUUID();
 
@@ -95,7 +95,7 @@ function SearchResult() {
                 </>
             ) : typeOfSearch === "posts" ? (
                 <>
-                    <h2>Posts Found</h2>
+                    <h2 className="title-section">Posts Found</h2>
                     {array.map((post) => {
                         const randomKey = crypto.randomUUID();
 

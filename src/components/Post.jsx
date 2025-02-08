@@ -93,7 +93,7 @@ function Post() {
 
                 <div className="styled-button">
                     <p>{commentsObject.length}</p>
-                    <img src="/icons/messageIconFeather.svg" alt="Comments" />
+                    <img className="small-image" src="/icons/messageIconFeather.svg" alt="Comments" />
                 </div>
 
                 <More xId={postId} typeOfX={"post"} />
