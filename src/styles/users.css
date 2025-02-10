@@ -10,15 +10,11 @@
 
 .user-info-detailed {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     justify-items: center;
     background-color: #ffd9cc;
     border-bottom: 6px solid #47001a;
     box-shadow: 0px 2px 18px -4px #47001a;
     border-radius: 15px;
-    padding: 30px 10px;
-    /* left and right values (here and similar classes) to be precisely set in Media Queries */
-    margin: 5px 7% 20px;
 }
 
 .other-user-info {
@@ -82,7 +78,13 @@
     }
 
     .user-info-detailed .user-info .username a address {
-        font-size: medium;
+        font-size: larger;
+    }
+
+    .user-info-detailed {
+        grid-template-columns: 1fr;
+        padding: 10px 12.5px 30px;
+        margin: 5px 12.5px 20px;
     }
 }
 
@@ -112,6 +114,12 @@
     .user-info-detailed .user-info .username a address {
         font-size: large;
     }
+
+    .user-info-detailed {
+        grid-template-columns: 1fr 1fr;
+        padding: 30px 4px;
+        margin: 5px 10px 20px;
+    }
 }
 
 @media only screen and (min-width: 800px) {
@@ -140,5 +148,11 @@
 
     .user-info-detailed .user-info .username a address {
         font-size: xx-large;
+    }
+
+    .user-info-detailed {
+        grid-template-columns: 1fr 1fr;
+        padding: 30px 10px;
+        margin: 5px 7% 20px;
     }
 }
