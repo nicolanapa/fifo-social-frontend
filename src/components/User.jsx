@@ -78,21 +78,24 @@ function User() {
             </section>
 
             <div className="user-tools">
-                <FollowUser userId={userId} />
-
-                {/* Move the two buttons / .user-tools in another Component*/}
-                <Link to={"./followers"}>
-                    <button className="followers-button">
-                        {userObject.followers} Followers
-                    </button>
-                </Link>
-                <Link to={"./followed"}>
-                    {" "}
-                    <button className="followers-button">
-                        {userObject.followed} Followed
-                    </button>
-                </Link>
-                <More xId={userId} typeOfX={"user"} />
+                <div>
+                    {/* Move the two buttons / .user-tools in another Component*/}
+                    <Link to={"./followers"}>
+                        <button className="followers-button">
+                            {userObject.followers} Followers
+                        </button>
+                    </Link>
+                    <Link to={"./followed"}>
+                        {" "}
+                        <button className="followers-button">
+                            {userObject.followed} Followed
+                        </button>
+                    </Link>
+                </div>
+                <div>
+                    <FollowUser userId={userId} />
+                    <More xId={userId} typeOfX={"user"} />
+                </div>
             </div>
 
             <section>

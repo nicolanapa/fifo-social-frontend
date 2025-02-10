@@ -21,24 +21,12 @@
     margin: 5px 7% 20px;
 }
 
-.user-info-detailed .user-info .username a address {
-    font-size: xx-large;
-}
-
 .other-user-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     row-gap: 15px;
-}
-
-.user-tools {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 15px 2.5px 25px;
 }
 
 .followers-button {
@@ -56,21 +44,101 @@
 
 .user-preview {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: space-around;
     align-self: center;
     border: 2px solid #d1d1d1;
     box-shadow: 0px 0px 10px 3px #d1d1d1;
     border-radius: 10px;
-    padding: 5px 15px 17.5px;
-    margin: 15px 5% 35px;
 }
 
 @media only screen and (max-width: 500px) {
+    .user-preview {
+        grid-template-columns: 1fr;
+        padding: 7.5px 12px 17.5px 15px;
+        margin: 15px 15px 35px;
+    }
+
+    .user-preview .user-tools {
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+        margin: 25px 2.5px 10px;
+    }
+
+    .user-preview .user-tools > div,
+    .user-container .user-tools > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .user-container .user-tools {
+        margin-bottom: 30px;
+    }
+
+    .user-container .user-tools > div {
+        margin: 17.5px 2.5px;
+    }
+
+    .user-info-detailed .user-info .username a address {
+        font-size: medium;
+    }
 }
 
 @media only screen and (min-width: 500px) and (max-width: 800px) {
+    .user-preview {
+        grid-template-columns: 1fr;
+        padding: 5px 15px 2.5px;
+        margin: 15px 25px 35px;
+    }
+
+    .user-tools {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 30px 2.5px 25px;
+    }
+
+    .user-tools > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 10px;
+    }
+
+    .user-info-detailed .user-info .username a address {
+        font-size: large;
+    }
 }
 
 @media only screen and (min-width: 800px) {
+    .user-preview {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        padding: 5px 12px 18px;
+        margin: 15px 3.5% 35px;
+    }
+
+    .user-tools {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 15px 2.5px 25px;
+    }
+
+    .user-tools > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        column-gap: 10px;
+    }
+
+    .user-info-detailed .user-info .username a address {
+        font-size: xx-large;
+    }
 }
