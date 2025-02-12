@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import PropTypes from "prop-types";
 import "../styles/navBar.css";
 
-function SearchForm() {
+function SearchForm({ width }) {
     const [selectedOption, setSelectedOption] = useState("global");
     const [hiddenSelect, setHiddenSelect] = useState(true);
     const navigate = useNavigate();
@@ -53,7 +54,7 @@ function SearchForm() {
                 className="styled-button"
             >
                 <img
-                    className="bigger-image"
+                    className={(width < 800 ? "normal" : "bigger") + "-image"}
                     src="/icons/searchTypeIcon.svg"
                     alt="Search options"
                 />
@@ -86,7 +87,7 @@ function SearchForm() {
             )*/}
             <button type="submit" className="styled-button">
                 <img
-                    className="bigger-image"
+                    className={(width < 800 ? "normal" : "bigger") + "-image"}
                     src="/icons/searchIcon.svg"
                     alt="Search"
                 />
@@ -94,5 +95,9 @@ function SearchForm() {
         </form>
     );
 }
+
+SearchForm.propTypes = {
+    width: PropTypes.number,
+};
 
 export default SearchForm;
