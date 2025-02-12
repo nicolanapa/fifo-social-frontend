@@ -1,9 +1,10 @@
 import { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import LoginContext from "../context/LoginContext";
 import { getLoginObject } from "../scripts/getLoginObject";
 import "../styles/posts.css";
 import UserInfo from "./UserInfo";
+import NotLoggedIn from "./NotLoggedIn";
 
 function AddPost() {
     const { loginInfo, setLoginInfo } = useContext(LoginContext);
@@ -102,10 +103,7 @@ function AddPost() {
                     </form>
                 </article>
             ) : (
-                <div>
-                    <h1>You&apos;re not logged in</h1>
-                    <Link to="/login">Login or Signup</Link>
-                </div>
+                <NotLoggedIn />
             )}
         </>
     );

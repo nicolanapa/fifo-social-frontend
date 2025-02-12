@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import LoginContext from "../context/LoginContext";
 import { getLoginObject } from "../scripts/getLoginObject";
-import { Link } from "react-router";
 import PostPreview from "./PostPreview";
 import Comment from "./Comment";
+import NotLoggedIn from "./NotLoggedIn";
 
 function Favorites() {
     const { loginInfo, setLoginInfo } = useContext(LoginContext);
@@ -124,10 +124,7 @@ function Favorites() {
                     </section>
                 </>
             ) : (
-                <div>
-                    <h1>You&apos;re not logged in</h1>
-                    <Link to="/login">Login or Signup</Link>
-                </div>
+                <NotLoggedIn />
             )}
         </>
     );
