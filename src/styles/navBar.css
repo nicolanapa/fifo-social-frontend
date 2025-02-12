@@ -16,12 +16,19 @@
     flex-direction: column;
     position: absolute;
     text-align: center;
-    background-color: #ffbaba8f;
+    background-color: #ffcbcbde;
     border-radius: 10px;
     top: 70px;
-    left: -90px;
     row-gap: 15px;
     padding: 15px 20px;
+}
+
+.absolute-search-modal {
+    left: -100px;
+}
+
+.user-menu-modal {
+    left: 2.5px;
 }
 
 .hidden {
@@ -39,6 +46,10 @@
         grid-template-columns: 0.5fr 0.75fr 1.2fr;
         column-gap: 2px;
         padding: 15px 2px;
+    }
+
+    .user-menu {
+        margin-left: -20px;
     }
 }
 
