@@ -160,8 +160,6 @@
     background-color: #ececec9e;
     box-shadow: 0px 0px 14px 4px #ececec9e;
     border-radius: 30px;
-    padding: 40px 10%;
-    margin: 25px 10% 40px;
     row-gap: 15px;
 }
 
@@ -206,6 +204,14 @@
         padding: 30px 11% 30px 15px;
         margin: 15px;
     }
+
+    /* Login */
+
+    .login-container,
+    .signup-container {
+        padding: 40px 30px;
+        margin: 25px 25px 40px;
+    }
 }
 
 @media only screen and (min-width: 500px) and (max-width: 800px) {
@@ -237,6 +243,14 @@
         padding: 30px 10px;
         margin: 2.5% 8.5% 7.5% 9.5%;
     }
+
+    /* Login */
+
+    .login-container,
+    .signup-container {
+        padding: 40px 7.5%;
+        margin: 25px 5.5% 40px;
+    }
 }
 
 @media only screen and (min-width: 800px) {
@@ -266,5 +280,13 @@
         left: 0;
         padding: 30px 10px;
         margin: 4.5% 8.5% 7.5% 9.5%;
+    }
+
+    /* Login */
+
+    .login-container,
+    .signup-container {
+        padding: 40px 10%;
+        margin: 25px 12.5% 40px;
     }
 }
