@@ -54,7 +54,7 @@ function SearchForm({ width }) {
                 className="styled-button"
             >
                 <img
-                    className={(width < 800 ? "normal" : "bigger") + "-image"}
+                    className={(width < 800 ? "small" : "bigger") + "-image"}
                     src="/icons/searchTypeIcon.svg"
                     alt="Search options"
                 />
@@ -87,7 +87,7 @@ function SearchForm({ width }) {
             )*/}
             <button type="submit" className="styled-button">
                 <img
-                    className={(width < 800 ? "normal" : "bigger") + "-image"}
+                    className={(width < 800 ? "small" : "bigger") + "-image"}
                     src="/icons/searchIcon.svg"
                     alt="Search"
                 />
