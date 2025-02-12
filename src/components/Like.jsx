@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
+import LoginContext from "../context/LoginContext";
 
 function Like({ id, likes, postOrComment }) {
+    const { loginInfo } = useContext(LoginContext);
     const [likeAmount, setLikeAmount] = useState(Number(likes));
     const navigate = useNavigate();
 
@@ -52,7 +54,12 @@ function Like({ id, likes, postOrComment }) {
     }
 
     return (
-        <button type="button" onClick={likeX} className="styled-button">
+        <button
+            type="button"
+            onClick={likeX}
+            disabled={!loginInfo.isAuthenticated}
+            className="styled-button"
+        >
             <img
                 className="small-image"
                 src="/icons/thumbsUpIconFeather.svg"
