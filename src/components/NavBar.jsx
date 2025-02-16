@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import LoginContext from "../context/LoginContext.jsx";
 import SearchForm from "./SearchForm.jsx";
@@ -43,7 +43,7 @@ function NavBar() {
 
                 <SearchForm width={width} />
 
-                {width < 800 ? (
+                {width <= 800 ? (
                     <div className="relative-modal user-menu">
                         {openUserMenu && (
                             <div className="absolute-search-modal user-menu-modal">
