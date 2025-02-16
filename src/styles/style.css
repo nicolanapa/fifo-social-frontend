@@ -45,6 +45,10 @@ a:visited {
     height: 24px;
 }
 
+.no-link-style {
+    text-decoration: none;
+}
+
 /* UserInfo */
 
 .user-info {
