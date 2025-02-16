@@ -68,9 +68,15 @@ function UserPreview(props) {
                     </Link>
                 </div>
                 <div>
-                    <div className="styled-button">
-                        <p>{postObject.length} Posts</p>
-                    </div>
+                    <Link
+                        to={"/user/" + props.id + "/#posts"}
+                        className="no-link-style"
+                    >
+                        <div className="styled-button">
+                            <p>{postObject.length} Posts</p>
+                        </div>
+                    </Link>
+
                     <FollowUser userId={props.id} />
                 </div>
             </section>

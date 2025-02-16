@@ -98,7 +98,7 @@ function User() {
                 </div>
             </div>
 
-            <section>
+            <section id="posts">
                 {postObject.length !== 0 ? (
                     postObject.map((post) => {
                         const randomKey = crypto.randomUUID();

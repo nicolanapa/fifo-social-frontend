@@ -66,10 +66,19 @@ function PostPreview(props) {
             <footer className="post-tools">
                 <Like id={id} likes={likes} postOrComment={"post"} />
 
-                <div className="styled-button">
-                    <p>{commentsAmount}</p>
-                    <img className="small-image" src="/icons/messageIconFeather.svg" alt="Comments" />
-                </div>
+                <Link
+                    to={"/post/" + id + "/#comments"}
+                    className="no-link-style"
+                >
+                    <div className="styled-button">
+                        <p>{commentsAmount}</p>
+                        <img
+                            className="small-image"
+                            src="/icons/messageIconFeather.svg"
+                            alt="Comments"
+                        />
+                    </div>
+                </Link>
 
                 <More xId={id} typeOfX={"post"} />
             </footer>

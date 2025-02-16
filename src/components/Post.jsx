@@ -91,17 +91,23 @@ function Post() {
                     />
                 )}
 
-                <div className="styled-button">
-                    <p>{commentsObject.length}</p>
-                    <img className="small-image" src="/icons/messageIconFeather.svg" alt="Comments" />
-                </div>
+                <a href="#comments" className="no-link-style">
+                    <div className="styled-button">
+                        <p>{commentsObject.length}</p>
+                        <img
+                            className="small-image"
+                            src="/icons/messageIconFeather.svg"
+                            alt="Comments"
+                        />
+                    </div>
+                </a>
 
                 <More xId={postId} typeOfX={"post"} />
             </footer>
 
             <AddComment postId={postId} />
 
-            <section className="comments-section">
+            <section className="comments-section" id="comments">
                 {commentsObject.length !== 0 ? (
                     commentsObject.map((comment) => {
                         const randomKey = crypto.randomUUID();
